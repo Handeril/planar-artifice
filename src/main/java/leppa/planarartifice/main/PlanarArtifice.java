@@ -36,7 +36,7 @@ import java.util.List;
 @Mod(modid = PlanarArtifice.MODID, name = PlanarArtifice.NAME, dependencies = PlanarArtifice.DEPS)
 public class PlanarArtifice implements LoadingCallback {
     public static final String MODID = "planarartifice";
-    public static final String NAME = "Planar Artifice";
+    public static final String NAME = "Planar Artifice Kedition";
     public static final String DEPS =
             "required-after:thaumcraft;" +
                     "after:jei@[4.12.0.0,);" +
