@@ -44,7 +44,6 @@ public class PAItems{
 	public static Item aura_meter = new ItemAuraMeter("aura_meter");
 	public static Item belt_of_suspension = new ItemBeltOfSuspension("belt_of_suspension");
 	public static Item mirrored_amulet  = new ItemMirroredAmulet("mirrored_amulet");
-	public static Item thaum_coat = new ItemThaumaturgistCoat("thaum_coat", armorMatAlkimium);
 	
 	//Food
 	public static Item magic_apple = new ItemMagicApple("magic_apple");
@@ -55,8 +54,6 @@ public class PAItems{
 	public static Item mirromirous_headband = new ItemMirroredHeadband("mirromirous_headband");
 	public static Item bismuth_caster = new ItemBismuthCaster("bismuth_caster").setCreativeTab(PlanarArtifice.creativetab);
 	public static Item bismuth_claymore = new ItemBismuthSword("bismuth_claymore", toolMatBismuth);
-	public static Item glass_cutter = new ItemGlassCutter("glass_cutter");
-	public static Item vis_glass_cutter = new ItemVisGlassCutter("vis_glass_cutter");
 
 	public static Item alchemical_universe = new ItemPA("alchemical_universe").setCreativeTab(null);
 

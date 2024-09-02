@@ -32,12 +32,12 @@ public class GuiFluxScrubber extends GuiContainer{
 		GlStateManager.enableBlend();
 		super.drawDefaultBackground();
 		this.mc.getTextureManager().bindTexture(tex);
-        this.drawModalRectWithCustomSizedTexture((width / 2) - (xSize / 2), (height / 2) - (ySize / 2), 0, 0, xSize, ySize, xSize, ySize);
+        drawModalRectWithCustomSizedTexture((width / 2) - (xSize / 2), (height / 2) - (ySize / 2), 0, 0, xSize, ySize, xSize, ySize);
         GlStateManager.disableBlend();
         int prog = tile.getSaltTimeScaled();
         if(prog != 0){
         	this.mc.getTextureManager().bindTexture(extra);
-        	this.drawModalRectWithCustomSizedTexture(76 + ((width / 2) - (xSize / 2)), ((width / 2) - (ySize / 2)) - 47, 0, 0, prog, 5, 24, 5);
+        	drawModalRectWithCustomSizedTexture(76 + (width / 2) - (xSize / 2), (height / 2) - (ySize / 2) + 53, 0, 0, prog, 5, 24, 5);
         }
 	}
 }

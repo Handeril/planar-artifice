@@ -8,7 +8,7 @@ public class ItemPA extends Item {
 	
 	public ItemPA(String name) {
 		this.setRegistryName(name);
-		this.setUnlocalizedName(name);
+		this.setTranslationKey(name);
 		this.setCreativeTab(PlanarArtifice.creativetab);
 		
 		PAItems.ITEMS.add(this);

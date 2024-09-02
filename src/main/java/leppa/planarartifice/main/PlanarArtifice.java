@@ -1,11 +1,7 @@
 package leppa.planarartifice.main;
 
-import leppa.planarartifice.compat.xercapaint.XercaPaintHandler;
 import leppa.planarartifice.enchantment.EnumInfusionEnchantmentII;
-import leppa.planarartifice.util.ReflectionUtils;
 import net.minecraft.item.EnumRarity;
-import net.minecraft.item.Item;
-import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.TextFormatting;
@@ -16,7 +12,6 @@ import net.minecraftforge.common.ForgeChunkManager.LoadingCallback;
 import net.minecraftforge.common.ForgeChunkManager.Ticket;
 import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
-import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
@@ -28,167 +23,99 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.common.gameevent.TickEvent.ServerTickEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import thaumcraft.api.casters.FocusEffect;
-import thaumcraft.api.casters.FocusEngine;
-import thaumcraft.api.casters.IFocusElement;
 import thaumcraft.api.golems.EnumGolemTrait;
-import thaumcraft.common.items.casters.ItemCaster;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 @SuppressWarnings("unchecked")
 @EventBusSubscriber
 @Mod(modid = PlanarArtifice.MODID, name = PlanarArtifice.NAME, dependencies = PlanarArtifice.DEPS)
 public class PlanarArtifice implements LoadingCallback {
-	public static final String MODID = "planarartifice";
-	public static final String NAME = "Planar Artifice";
-	public static final String DEPS =
-			"required-after:thaumcraft;" +
-					"after:jei@[4.12.0.0,);" +
-					"after:thaumicaugmentation;" +
-					"after:thaumicadds;" +
-					"after:thaumicwonders;" +
-					"after:thaumicpotatoes;" +
-					"after:botania;" +
-					"after:botanicadds;" +
-					"after:extrabotany;" +
-					"after:naturalpledge;" +
-					"after:astralsorcery;" +
-					"after:moretweaker;" +
-					"after:bewitchment;" +
-					"after:embers;" +
-					"after:soot;" +
-					"after:magicbees;" +
-					"after:twilightforest;" +
-					"after:tconstruct;" +
-					"after:appliedenergistics2;" +
-					"after:refinedstorage;" +
-					"after:arcanearchives;" +
-					"after:ctm;" +
-					"after:xercapaint;" +
-					"after:aeadditions;" +
-					"after:aether_legacy;" +
-					"after:lost_aether;" +
-					"after:aether_legacy_addon;" +
-					"after:tinkersaether";
-	public static final PlanarTab creativetab = new PlanarTab();
+    public static final String MODID = "planarartifice";
+    public static final String NAME = "Planar Artifice";
+    public static final String DEPS =
+            "required-after:thaumcraft;" +
+                    "after:jei@[4.12.0.0,);" +
+                    "after:thaumicadds;" +
+                    "after:moretweaker;" +
+                    "after:magicbees;" +
+                    "after:tconstruct";
+    public static final PlanarTab creativetab = new PlanarTab();
 
-	public static boolean isSingleplayer;
+    public static boolean isSingleplayer;
 
-	public static ArrayList<FocusEffect> focusEffects = new ArrayList<>();
-	public static int currentFocusEffect = 0;
-	public static int currentColourPicked = 0xffffff;
+    public static final EnumGolemTrait golemTraitTeleporter = EnumHelper.addEnum(EnumGolemTrait.class, "TELEPORTER",
+            new Class[]{ResourceLocation.class},
+            new ResourceLocation(MODID, "textures/misc/golem/tag_teleporter.png"));
+    public static final EnumRarity rarityPA = EnumHelper.addRarity(MODID, TextFormatting.GREEN, NAME);
 
-	static HashMap<String, Integer> p;
+    @SidedProxy(serverSide = "leppa.planarartifice.main.CommonProxy", clientSide = "leppa.planarartifice.client.ClientProxy")
+    public static CommonProxy proxy;
 
-	public static final EnumGolemTrait golemTraitTeleporter = EnumHelper.addEnum(EnumGolemTrait.class, "TELEPORTER",
-			new Class[] {ResourceLocation.class},
-			new ResourceLocation(MODID, "textures/misc/golem/tag_teleporter.png"));
-	public static final EnumRarity rarityPA = EnumHelper.addRarity(MODID, TextFormatting.GREEN, NAME);
+    @Instance(MODID)
+    public static PlanarArtifice instance = new PlanarArtifice();
+    public static final Logger LOGGER = LogManager.getLogger(MODID);
 
-	@SidedProxy(serverSide = "leppa.planarartifice.main.CommonProxy", clientSide = "leppa.planarartifice.client.ClientProxy")
-	public static CommonProxy proxy;
+    // stole from magical psi -p
+    public PlanarArtifice() {
+        super();
+        if (!Loader.isModLoaded("xercapaint") || PAConfig.compat.disableXercaPaintCompat || FMLCommonHandler.instance().getSide().isServer())
+            return;
+        String classname = "leppa.planarartifice.compat.xercapaint.XercaResources";
+        System.out.println(classname);
+        try {
+            Class<?> clazz = Class.forName(classname);
+            clazz.getMethod("init").invoke(null);
+        } catch (Throwable e) {
+            System.out.println("XercaPaint resource error: " + e);
+        }
+    }
 
-	@Instance(MODID)
-	public static PlanarArtifice instance = new PlanarArtifice();
-	public static final Logger LOGGER = LogManager.getLogger(MODID);
+    @EventHandler
+    public void preInit(FMLPreInitializationEvent event) {
+        proxy.preInit(event);
+    }
 
-	static {
-		p = (HashMap<String, Integer>) ReflectionUtils.getPrivateObject("elementColor", new FocusEngine());
-	}
+    @EventHandler
+    public void init(FMLInitializationEvent event) {
+        proxy.init(event);
+    }
 
-	// stole from magical psi -p
-	public PlanarArtifice() {
-		super();
-		if (!Loader.isModLoaded("xercapaint") || PAConfig.compat.disableXercaPaintCompat || FMLCommonHandler.instance().getSide().isServer()) return;
-		String classname = "leppa.planarartifice.compat.xercapaint.XercaResources";
-		System.out.println(classname);
-		try {
-			Class<?> clazz = Class.forName(classname);
-			clazz.getMethod("init").invoke(null);
-		} catch (Throwable e) { System.out.println("XercaPaint resource error: " + e); }
-	}
+    @EventHandler
+    public void postInit(FMLPostInitializationEvent event) {
+        proxy.postInit(event);
 
-	@EventHandler
-	public void preInit(FMLPreInitializationEvent event) {
-		proxy.preInit(event);
-	}
+        ForgeChunkManager.setForcedChunkLoadingCallback(this, this);
+    }
 
-	@EventHandler
-	public void init(FMLInitializationEvent event) {
-		proxy.init(event);
-		if (Loader.isModLoaded("xercapaint")) XercaPaintHandler.registerOresLate();
-	}
+    @SideOnly(value = Side.CLIENT)
+    @SubscribeEvent
+    public static void tooltipEvent(ItemTooltipEvent event) {
+        event.getItemStack();
+        NBTTagList nbttaglist = EnumInfusionEnchantmentII.getInfusionEnchantmentTagList(event.getItemStack());
+        if (nbttaglist != null) {
+            for (int j = 0; j < nbttaglist.tagCount(); ++j) {
+                short k = nbttaglist.getCompoundTagAt(j).getShort("id");
+                short l = nbttaglist.getCompoundTagAt(j).getShort("lvl");
+                if (k < 0 || k >= EnumInfusionEnchantmentII.values().length)
+                    continue;
+                String s = TextFormatting.GOLD + I18n
+                        .translateToLocal("enchantment.infusion." + EnumInfusionEnchantmentII.values()[k].toString());
+                if (EnumInfusionEnchantmentII.values()[k].maxLevel > 1) {
+                    s = s + " " + I18n.translateToLocal("enchantment.level." + l);
+                }
+                event.getToolTip().add(1, s);
+            }
+        }
+    }
 
-	@EventHandler
-	public void postInit(FMLPostInitializationEvent event) {
-		proxy.postInit(event);
+    @Override
+    public void ticketsLoaded(List<Ticket> tickets, World world) {
+        // TODO Auto-generated method stub
 
-		ForgeChunkManager.setForcedChunkLoadingCallback(this, this);
-
-		for(int i = 0; i < FocusEngine.elements.values().size(); i++) {
-			try {
-				if(((Class<IFocusElement>) FocusEngine.elements.values().toArray()[i])
-						.newInstance() instanceof FocusEffect)
-					PlanarArtifice.focusEffects
-							.add(((FocusEffect) ((Class<IFocusElement>) FocusEngine.elements.values().toArray()[i])
-									.newInstance()));
-			} catch(Exception e) {
-				e.printStackTrace();
-			}
-		}
-	}
-
-	@SubscribeEvent
-	public static void onTick(ServerTickEvent tick) {
-		isSingleplayer = !FMLCommonHandler.instance().getMinecraftServerInstance().isDedicatedServer();
-
-		p.put("planarartifice.FOCUSCOLOURED", currentColourPicked);
-	}
-
-	@SubscribeEvent
-	public static void onItemRightClick(PlayerInteractEvent event) {
-		Item i = event.getEntityPlayer().getHeldItem(event.getHand()).getItem();
-		if(i instanceof ItemCaster)
-			if(event.getEntityPlayer().getHeldItem(event.getHand()).hasTagCompound()) {
-				NBTTagCompound l = event.getEntityPlayer().getHeldItem(event.getHand()).getTagCompound()
-						.getCompoundTag("focus").getCompoundTag("tag");
-				if(l.hasKey("color"))
-					currentColourPicked = l.getInteger("color");
-			}
-	}
-
-	@SideOnly(value = Side.CLIENT)
-	@SubscribeEvent
-	public static void tooltipEvent(ItemTooltipEvent event) {
-		event.getItemStack();
-		NBTTagList nbttaglist = EnumInfusionEnchantmentII.getInfusionEnchantmentTagList(event.getItemStack());
-		if(nbttaglist != null) {
-			for(int j = 0; j < nbttaglist.tagCount(); ++j) {
-				short k = nbttaglist.getCompoundTagAt(j).getShort("id");
-				short l = nbttaglist.getCompoundTagAt(j).getShort("lvl");
-				if(k < 0 || k >= EnumInfusionEnchantmentII.values().length)
-					continue;
-				String s = TextFormatting.GOLD + I18n
-						.translateToLocal("enchantment.infusion." + EnumInfusionEnchantmentII.values()[k].toString());
-				if(EnumInfusionEnchantmentII.values()[k].maxLevel > 1) {
-					s = s + " " + I18n.translateToLocal("enchantment.level." + l);
-				}
-				event.getToolTip().add(1, s);
-			}
-		}
-	}
-
-	@Override
-	public void ticketsLoaded(List<Ticket> tickets, World world) {
-		// TODO Auto-generated method stub
-
-	}
+    }
 }

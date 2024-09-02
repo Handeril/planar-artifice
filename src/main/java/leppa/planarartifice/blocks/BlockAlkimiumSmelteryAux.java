@@ -75,7 +75,7 @@ public class BlockAlkimiumSmelteryAux extends BlockPA implements IBlockFacingHor
 
 	public IBlockState getStateFromMeta(int meta) {
 		return this.getDefaultState().withProperty(IBlockFacingHorizontal.FACING,
-				EnumFacing.getHorizontal(BlockStateUtils.getFacing(meta).getHorizontalIndex()));
+				EnumFacing.byHorizontalIndex(BlockStateUtils.getFacing(meta).getHorizontalIndex()));
 	}
 
 	public int getMetaFromState(IBlockState state) {

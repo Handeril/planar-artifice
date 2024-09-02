@@ -1,28 +1,8 @@
 
 package leppa.planarartifice.compat;
 
-import leppa.planarartifice.compat.______.ThaumicPotatoesHandler;
-import leppa.planarartifice.compat.aether.AetherAdditionsHandler;
-import leppa.planarartifice.compat.aether.AetherContinuationHandler;
-import leppa.planarartifice.compat.aether.AetherHandler;
-import leppa.planarartifice.compat.aether.AetherLostContentHandler;
-import leppa.planarartifice.compat.astralsorcery.AstralSorceryHandler;
-import leppa.planarartifice.compat.bewitchment.BewitchmentHandler;
-import leppa.planarartifice.compat.botania.BotaniaHandler;
-import leppa.planarartifice.compat.botania.BotanicAdditionsHandler;
-import leppa.planarartifice.compat.botania.ExtraBotanyHandler;
-import leppa.planarartifice.compat.botania.NaturalPledgeHandler;
-import leppa.planarartifice.compat.embers.EmbersHandler;
-import leppa.planarartifice.compat.embers.SootHandler;
-import leppa.planarartifice.compat.storage.AE2Handler;
-import leppa.planarartifice.compat.storage.ArcaneArchivesHandler;
-import leppa.planarartifice.compat.storage.RSHandler;
 import leppa.planarartifice.compat.tconstruct.TConstructHandler;
 import leppa.planarartifice.compat.thaumicadditions.ThaumicAdditionsHandler;
-import leppa.planarartifice.compat.thaumicaugmentation.ThaumicAugmentationHandler;
-import leppa.planarartifice.compat.thaumicwonders.ThaumicWondersHandler;
-import leppa.planarartifice.compat.twilightforest.TwilightForestHandler;
-import leppa.planarartifice.compat.xercapaint.XercaPaintHandler;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -46,31 +26,6 @@ public class PACompatHandler {
 	static {
 		// thaum additions
 		CLASSES.put("thaumadditions", ThaumicAdditionsHandler.class);
-		CLASSES.put("thaumicaugmentation", ThaumicAugmentationHandler.class);
-		CLASSES.put("thaumicwonders", ThaumicWondersHandler.class);
-		CLASSES.put("thaumicpotatoes", ThaumicPotatoesHandler.class);
-		// botania
-		CLASSES.put("botania", BotaniaHandler.class);
-		CLASSES.put("botanicadds", BotanicAdditionsHandler.class);
-		CLASSES.put("extrabotany", ExtraBotanyHandler.class);
-		CLASSES.put("naturalpledge", NaturalPledgeHandler.class);
-		// other magic mods
-		CLASSES.put("astralsorcery", AstralSorceryHandler.class);
-		CLASSES.put("bewitchment", BewitchmentHandler.class);
-		CLASSES.put("embers", EmbersHandler.class);
-		CLASSES.put("soot", SootHandler.class);
-		// aether
-		CLASSES.put("aether_legacy", AetherHandler.class);
-		CLASSES.put("aether_legacy_addon", AetherContinuationHandler.class);
-		CLASSES.put("aeadditions", AetherAdditionsHandler.class);
-		CLASSES.put("lost_aether", AetherLostContentHandler.class);
-		// storage options
-		CLASSES.put("appliedenergistics2", AE2Handler.class);
-		CLASSES.put("refinedstorage", RSHandler.class);
-		CLASSES.put("arcanearchives", ArcaneArchivesHandler.class);
-		// other
-		CLASSES.put("twilightforest", TwilightForestHandler.class);
-		CLASSES.put("xercapaint", XercaPaintHandler.class);
 		CLASSES.put("tconstruct", TConstructHandler.class);
 	}
 

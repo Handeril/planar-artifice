@@ -1,10 +1,9 @@
 package leppa.planarartifice.core;
 
-import org.objectweb.asm.Opcodes;
-import org.objectweb.asm.tree.*;
-
 import static leppa.planarartifice.core.PATransformer.findMethod;
 import static leppa.planarartifice.core.PATransformer.findMethodCall;
+import org.objectweb.asm.Opcodes;
+import org.objectweb.asm.tree.*;
 
 public class TransformDrawKnowledge extends Transformer {
     void transform(ClassNode node) {

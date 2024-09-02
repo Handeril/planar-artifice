@@ -11,7 +11,7 @@ public class PAFluidBlock extends BlockFluidClassic {
 		super(fluid, material);
 		
 		this.setRegistryName(fluid.getName());
-		this.setUnlocalizedName(fluid.getName());
+		this.setTranslationKey(fluid.getName());
 		
 		PABlocks.BLOCKS.add(this);
 	}

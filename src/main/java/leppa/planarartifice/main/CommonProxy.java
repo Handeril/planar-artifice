@@ -1,7 +1,7 @@
 package leppa.planarartifice.main;
 
 import leppa.planarartifice.compat.PACompatHandler;
-import leppa.planarartifice.network.MessageOpenBook;
+import static leppa.planarartifice.main.PlanarArtifice.MODID;
 import leppa.planarartifice.network.MessageProjectingAttack;
 import leppa.planarartifice.network.PacketRequestUpdateTeleporter;
 import leppa.planarartifice.network.PacketUpdateTeleporter;
@@ -22,54 +22,49 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import thaumcraft.api.research.ResearchCategories;
 
-import static leppa.planarartifice.main.PlanarArtifice.MODID;
-
 public class CommonProxy {
 
-	public static SimpleNetworkWrapper network;
+    public static SimpleNetworkWrapper network;
 
-	public void preInit(FMLPreInitializationEvent e){
-		PAAspects.registerAspects();
-		PACompatHandler.setup();
-		PACompatHandler.preInit(e);
+    public void preInit(FMLPreInitializationEvent e) {
+        PAAspects.registerAspects();
+        PACompatHandler.setup();
+        PACompatHandler.preInit(e);
 
-		PAResearch.catPA = ResearchCategories.registerCategory("PLANARARTIFICE", "FIRSTSTEPS",
-				new Aspects("spatio", 20, "tempus", 20, "tinctura", 10, "vitreus", 10, "auram", 10, "ordo", 5),
-				new ResourceLocation(MODID, "textures/meta/logo_icon.png"),
-				new ResourceLocation(MODID, "textures/research/gui_research_back_2.jpg"));
+        PAResearch.catPA = ResearchCategories.registerCategory("PLANARARTIFICE", "FIRSTSTEPS",
+                new Aspects("spatio", 20, "tempus", 20, "vitreus", 10, "auram", 10, "ordo", 5),
+                new ResourceLocation(MODID, "textures/meta/logo_icon.png"),
+                new ResourceLocation(MODID, "textures/research/gui_research_back_2.jpg"));
 
-		GameRegistry.registerTileEntity(TileTeleporter.class, new ResourceLocation(MODID, "mirrorTeleporter"));
-		GameRegistry.registerTileEntity(TileFluxScrubber.class, new ResourceLocation(MODID,"fluxScrubber"));
-		GameRegistry.registerTileEntity(TilePotionMixer.class, new ResourceLocation(MODID,"potionMixer"));
-		GameRegistry.registerTileEntity(TileAlkimiumSmeltery.class, new ResourceLocation(MODID,"alkimiumSmeltery"));
-		GameRegistry.registerTileEntity(TileAlkimiumCentrifuge.class, new ResourceLocation(MODID,"alkimiumCentrifuge"));
-		GameRegistry.registerTileEntity(TileStarvingChest.class, new ResourceLocation(MODID,"starvingChest"));
+        GameRegistry.registerTileEntity(TileTeleporter.class, new ResourceLocation(MODID, "mirrorTeleporter"));
+        GameRegistry.registerTileEntity(TileFluxScrubber.class, new ResourceLocation(MODID, "fluxScrubber"));
+        GameRegistry.registerTileEntity(TileAlkimiumSmeltery.class, new ResourceLocation(MODID, "alkimiumSmeltery"));
+        GameRegistry.registerTileEntity(TileAlkimiumCentrifuge.class, new ResourceLocation(MODID, "alkimiumCentrifuge"));
+        GameRegistry.registerTileEntity(TileStarvingChest.class, new ResourceLocation(MODID, "starvingChest"));
 
-		network = NetworkRegistry.INSTANCE.newSimpleChannel(MODID);
-		int id = 0;
-		network.registerMessage(new PacketUpdateTeleporter.Handler(), PacketUpdateTeleporter.class, id++, Side.CLIENT);
-		network.registerMessage(new PacketRequestUpdateTeleporter.Handler(), PacketRequestUpdateTeleporter.class, id++, Side.SERVER);
-		network.registerMessage(new MessageProjectingAttack.Handler(), MessageProjectingAttack.class, id++, Side.SERVER);
-		network.registerMessage(new MessageOpenBook.Handler(), MessageOpenBook.class, id++, Side.SERVER);
+        network = NetworkRegistry.INSTANCE.newSimpleChannel(MODID);
+        int id = 0;
+        network.registerMessage(new PacketUpdateTeleporter.Handler(), PacketUpdateTeleporter.class, id++, Side.CLIENT);
+        network.registerMessage(new PacketRequestUpdateTeleporter.Handler(), PacketRequestUpdateTeleporter.class, id++, Side.SERVER);
+        network.registerMessage(new MessageProjectingAttack.Handler(), MessageProjectingAttack.class, id++, Side.SERVER);
 
-		NetworkRegistry.INSTANCE.registerGuiHandler(PlanarArtifice.instance, new PAGuiHandler());
+        NetworkRegistry.INSTANCE.registerGuiHandler(PlanarArtifice.instance, new PAGuiHandler());
 
-	}
+    }
 
-	public void init(FMLInitializationEvent e) {
-		CrucibleRecipeRandomCrystal.registerAspectList();
-		PAResearch.registerResearch();
-		PACompatHandler.init(e);
-	}
+    public void init(FMLInitializationEvent e) {
+        CrucibleRecipeRandomCrystal.registerAspectList();
+        PAResearch.registerResearch();
+        PACompatHandler.init(e);
+    }
 
-	public void postInit(FMLPostInitializationEvent e){
-		PAAspects.registerEntityAspects();
-		PACompatHandler.postInit(e);
-	}
+    public void postInit(FMLPostInitializationEvent e) {
+        PACompatHandler.postInit(e);
+    }
 
-	public EntityPlayer getPlayerEntityFromContext(MessageContext ctx) {
-		return ctx.getServerHandler().player;
-	}
+    public EntityPlayer getPlayerEntityFromContext(MessageContext ctx) {
+        return ctx.getServerHandler().player;
+    }
 
 
 }

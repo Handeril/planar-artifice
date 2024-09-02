@@ -1,9 +1,8 @@
 package leppa.planarartifice.core;
 
+import static leppa.planarartifice.core.PATransformer.*;
 import org.objectweb.asm.Opcodes;
 import org.objectweb.asm.tree.*;
-
-import static leppa.planarartifice.core.PATransformer.*;
 
 public class TransformSpreadFibre extends Transformer {
     public TransformSpreadFibre() {}

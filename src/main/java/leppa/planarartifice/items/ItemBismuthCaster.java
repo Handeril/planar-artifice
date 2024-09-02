@@ -1,12 +1,9 @@
 package leppa.planarartifice.items;
 
-import java.util.List;
-
 import leppa.planarartifice.main.PlanarArtifice;
 import leppa.planarartifice.registry.PAItems;
 import leppa.planarartifice.util.LocalizationHelper;
 import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
@@ -20,6 +17,8 @@ import thaumcraft.api.casters.IFocusBlockPicker;
 import thaumcraft.api.casters.IFocusElement;
 import thaumcraft.common.items.casters.ItemCaster;
 import thaumcraft.common.items.casters.ItemFocus;
+
+import java.util.List;
 
 public class ItemBismuthCaster extends ItemCaster {
 	
@@ -38,8 +37,8 @@ public class ItemBismuthCaster extends ItemCaster {
 		
 		ItemStack focusStack = this.getFocusStack(player.getHeldItem(hand));
 		ItemFocus focus = this.getFocus(player.getHeldItem(hand));
-		if(focus != null && !PAFocusEngine.isOnCooldown((EntityLivingBase)player)){
-			PAFocusEngine.setCooldown((EntityLivingBase)player, focus.getActivationTime(focusStack));
+		if(focus != null && !PAFocusEngine.isOnCooldown(player)){
+			PAFocusEngine.setCooldown(player, focus.getActivationTime(focusStack));
 			FocusPackage core = ItemFocus.getPackage(focusStack);
 			if(player.isSneaking()){
 				for(IFocusElement fe : core.nodes){
@@ -50,7 +49,7 @@ public class ItemBismuthCaster extends ItemCaster {
 			}
 
 			if(this.consumeVis(player.getHeldItem(hand), player, focus.getVisCost(focusStack) * costMultiplier, false, false)){
-				PAFocusEngine.castFocusPackageWithMultiplier((EntityLivingBase)player, core, 2);
+				PAFocusEngine.castFocusPackageWithMultiplier(player, core, 2);
 				player.swingArm(hand);
 				return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, player.getHeldItem(hand));
 			}

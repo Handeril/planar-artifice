@@ -36,7 +36,7 @@ public class ItemAlkimiumGoggles extends ItemArmor implements IRevealer, IGoggle
 
 	public ItemAlkimiumGoggles(String name, ArmorMaterial mat) {
 		super(mat, 3, EntityEquipmentSlot.HEAD);
-		setUnlocalizedName(name);
+		setTranslationKey(name);
 		setRegistryName(name);
 		setCreativeTab(PlanarArtifice.creativetab);
 		PAItems.ITEMS.add(this);

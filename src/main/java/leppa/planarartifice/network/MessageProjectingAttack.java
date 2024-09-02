@@ -2,7 +2,6 @@ package leppa.planarartifice.network;
 
 import io.netty.buffer.ByteBuf;
 import leppa.planarartifice.enchantment.EnumInfusionEnchantmentII;
-import leppa.planarartifice.main.CommonProxy;
 import leppa.planarartifice.main.PlanarArtifice;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;

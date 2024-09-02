@@ -30,7 +30,7 @@ public class TileAlkimiumCentrifuge extends TileCentrifuge {
             this.aspectIn = aspect;
             this.process = 40;
             this.markDirty();
-            this.world.markAndNotifyBlock(this.getPos(), this.world.getChunkFromBlockCoords(this.getPos()), this.world.getBlockState(this.getPos()), this.world.getBlockState(this.getPos()), 3);
+            this.world.markAndNotifyBlock(this.getPos(), this.world.getChunk(this.getPos()), this.world.getBlockState(this.getPos()), this.world.getBlockState(this.getPos()), 3);
             return 1;
         } else return 0;
     }
@@ -59,7 +59,7 @@ public class TileAlkimiumCentrifuge extends TileCentrifuge {
             Aspect[] comps = this.aspectIn.getComponents();
             this.aspectOut = comps[number];
             this.markDirty();
-            this.world.markAndNotifyBlock(pos, this.world.getChunkFromBlockCoords(pos), state, state, 3);
+            this.world.markAndNotifyBlock(pos, this.world.getChunk(pos), state, state, 3);
         } else {
             this.aspectOut = null;
             AuraHelper.polluteAura(this.world, pos, pp / 2.0F, true);
@@ -83,7 +83,7 @@ public class TileAlkimiumCentrifuge extends TileCentrifuge {
                 if (!success) pp = AspectHelper.reduceToPrimals(new Aspects(ta, 1)).aspects.values().parallelStream().reduce(0, Integer::sum);
                 this.process = 40;
                 this.markDirty();
-                this.world.markAndNotifyBlock(pos, this.world.getChunkFromBlockCoords(pos), state, state, 3);
+                this.world.markAndNotifyBlock(pos, this.world.getChunk(pos), state, state, 3);
             }
         }
     }

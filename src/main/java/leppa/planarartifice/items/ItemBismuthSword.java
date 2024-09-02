@@ -17,7 +17,7 @@ public class ItemBismuthSword extends ItemSword {
 	public ItemBismuthSword(String name, ToolMaterial material) {
 		super(material);
 		this.setRegistryName(name);
-		this.setUnlocalizedName(name);
+		this.setTranslationKey(name);
 		this.setCreativeTab(PlanarArtifice.creativetab);
 		
 		PAItems.ITEMS.add(this);

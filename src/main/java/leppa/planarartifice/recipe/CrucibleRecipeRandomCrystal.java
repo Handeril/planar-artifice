@@ -1,8 +1,11 @@
 package leppa.planarartifice.recipe;
 
 import leppa.planarartifice.compat.thaumicadditions.ThaumicAdditionsHandler;
+import static leppa.planarartifice.compat.thaumicadditions.ThaumicAdditionsHandler.getSalt;
 import leppa.planarartifice.main.PAConfig;
 import leppa.planarartifice.registry.PAAspects;
+import static leppa.planarartifice.util.Aspects.yangAspects;
+import static leppa.planarartifice.util.Aspects.yinAspects;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.Loader;
 import thaumcraft.api.ThaumcraftApiHelper;
@@ -13,10 +16,6 @@ import thaumcraft.api.crafting.CrucibleRecipe;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
-
-import static leppa.planarartifice.compat.thaumicadditions.ThaumicAdditionsHandler.getSalt;
-import static leppa.planarartifice.util.Aspects.yangAspects;
-import static leppa.planarartifice.util.Aspects.yinAspects;
 
 public class CrucibleRecipeRandomCrystal extends CrucibleRecipe {
 
@@ -51,7 +50,7 @@ public class CrucibleRecipeRandomCrystal extends CrucibleRecipe {
 		if (!PAConfig.compat.disableAspectCompat) {
 			yangAspects.add(PAAspects.TIME);
 			yinAspects.add(PAAspects.DIMENSIONS);
-			yangAspects.add(PAAspects.COLOR);
+			//yangAspects.add(PAAspects.COLOR);
 		}
 	}
 }

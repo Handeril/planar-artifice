@@ -15,7 +15,6 @@ public class PATransformer implements IClassTransformer {
     static {
         transformers.put("thaumcraft.common.blocks.world.taint.TaintHelper", new TransformSpreadFibre());
         transformers.put("thaumcraft.client.gui.GuiResearchPage", new TransformDrawKnowledge());
-        transformers.put("thaumcraft.api.aspects.Aspect", new TransformGelumComposition());
         transformers.put("thaumcraft.common.lib.crafting.ThaumcraftCraftingManager", new TransformCraftingManager());
     }
 

@@ -1,8 +1,0 @@
-{
-    "parent": "block/orientable",
-    "textures": {
-        "top": "blocks/glass",
-        "front": "planarartifice:blocks/glass/glass_redstone",
-        "side": "blocks/glass"
-    }
-}

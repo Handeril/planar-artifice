@@ -1,10 +1,9 @@
 package leppa.planarartifice.core;
 
+import static leppa.planarartifice.core.PATransformer.*;
 import org.objectweb.asm.Label;
 import org.objectweb.asm.Opcodes;
 import org.objectweb.asm.tree.*;
-
-import static leppa.planarartifice.core.PATransformer.*;
 
 public class TransformCraftingManager extends Transformer {
     void transform(ClassNode node) {

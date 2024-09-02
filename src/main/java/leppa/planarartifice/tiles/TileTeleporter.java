@@ -83,7 +83,6 @@ public class TileTeleporter extends TileEntity implements ITickable{
 	@Override
 	public void update(){
 		if (chunkTicket == null) chunkTicket = ForgeChunkManager.requestTicket(PlanarArtifice.instance, world, Type.NORMAL);
-		if (chunkTicket == null) PlanarArtifice.LOGGER.warn("[PA, WAYSTONE] A Waystone couldn't load chunks, since there are no chunkloaders left.");
 		ForgeChunkManager.forceChunk(chunkTicket, new ChunkPos(pos));
 		if (world.isRemote && getAspect() != null) {
 			int c = getAspect().getColor();

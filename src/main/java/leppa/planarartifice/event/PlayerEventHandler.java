@@ -2,8 +2,6 @@ package leppa.planarartifice.event;
 
 import baubles.api.BaublesApi;
 import baubles.api.cap.IBaublesItemHandler;
-import leppa.planarartifice.items.ItemThaumaturgistCoat;
-import leppa.planarartifice.main.PAConfig;
 import leppa.planarartifice.main.PlanarArtifice;
 import leppa.planarartifice.registry.PAItems;
 import net.minecraft.entity.item.EntityItem;
@@ -12,22 +10,16 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.EnumHand;
 import net.minecraftforge.common.util.FakePlayer;
 import net.minecraftforge.event.entity.player.PlayerDropsEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
-import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.entity.player.PlayerPickupXpEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.common.gameevent.TickEvent;
 import thaumcraft.api.ThaumcraftApi;
 import thaumcraft.api.capabilities.IPlayerKnowledge;
-import thaumcraft.api.items.RechargeHelper;
 import thaumcraft.api.research.ResearchCategories;
-import thaumcraft.common.tiles.crafting.TileInfusionMatrix;
 
 import javax.annotation.Nonnull;
 import java.util.ListIterator;
@@ -182,23 +174,6 @@ public class PlayerEventHandler {
 				ThaumcraftApi.internalMethods.addKnowledge(event.getEntityPlayer(), IPlayerKnowledge.EnumKnowledgeType.OBSERVATION, ResearchCategories.getResearchCategory(cat), 2);
 			}
 		}
-	}
-
-	@SubscribeEvent
-	public static void onRightClick(PlayerInteractEvent.RightClickBlock event) {
-		if (!ItemThaumaturgistCoat.isWearingThis(event.getEntityPlayer())) return;
-		TileEntity te = event.getWorld().getTileEntity(event.getPos());
-		EntityPlayer player = event.getEntityPlayer();
-		if (te instanceof TileInfusionMatrix) {
-			((TileInfusionMatrix) te).onCasterRightClick(event.getWorld(), player.getHeldItem(EnumHand.MAIN_HAND), player, event.getPos(), event.getFace(), EnumHand.MAIN_HAND);
-			if (((TileInfusionMatrix) te).crafting) RechargeHelper.consumeCharge(ItemThaumaturgistCoat.findMe(player), player, 15);
-		}
-	}
-
-	@SubscribeEvent
-	public static void onPlayerTick(TickEvent.PlayerTickEvent e) { // onworntick only counts when its a bauble :(
-		if (e.phase == TickEvent.PlayerTickEvent.Phase.START && !e.player.world.isRemote && (PAConfig.balance.thaumCoatVisDrain != 0 && e.player.ticksExisted % PAConfig.balance.thaumCoatVisDrain == 0))
-			RechargeHelper.consumeCharge(ItemThaumaturgistCoat.findMe(e.player), e.player, 1);
 	}
 
 }

@@ -1,12 +1,11 @@
 package leppa.planarartifice.containers.gui;
 
-import org.lwjgl.opengl.GL11;
-
 import leppa.planarartifice.main.PlanarArtifice;
 import leppa.planarartifice.tiles.TileAlkimiumSmeltery;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.util.ResourceLocation;
+import org.lwjgl.opengl.GL11;
 import thaumcraft.common.container.ContainerSmelter;
 
 public class GuiAlkimiumSmeltery extends GuiContainer{
@@ -35,7 +34,7 @@ public class GuiAlkimiumSmeltery extends GuiContainer{
 		this.mc.renderEngine.bindTexture(this.tex);
 		int k = (this.width - this.xSize) / 2;
 		int l = (this.height - this.ySize) / 2;
-		GL11.glEnable((int)3042);
+		GL11.glEnable(3042);
 		this.drawTexturedModalRect(k, l, 0, 0, this.xSize, this.ySize);
 		if(this.furnaceInventory.getBurnTimeRemainingScaled(20) > 0){
 			int i = this.furnaceInventory.getBurnTimeRemainingScaled(20);

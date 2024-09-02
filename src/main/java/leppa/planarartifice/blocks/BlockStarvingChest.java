@@ -72,7 +72,7 @@ public class BlockStarvingChest extends BlockPA implements ITileEntityProvider {
     public IBlockState getStateForPlacement(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer)
     { return this.getStateFromMeta(meta).withProperty(FACING, placer.getHorizontalFacing()); }
     public void onBlockPlacedBy(World worldIn, BlockPos pos, IBlockState state, EntityLivingBase placer, ItemStack stack) {
-        EnumFacing enumfacing = EnumFacing.getHorizontal(MathHelper.floor((double)(placer.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3).getOpposite();
+        EnumFacing enumfacing = EnumFacing.byHorizontalIndex(MathHelper.floor((double)(placer.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3).getOpposite();
         state = this.getStateFromMeta(stack.getMetadata()).withProperty(FACING, enumfacing);
         worldIn.setBlockState(pos, state, 3);
     }

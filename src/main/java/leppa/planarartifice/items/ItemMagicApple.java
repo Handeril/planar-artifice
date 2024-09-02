@@ -15,7 +15,7 @@ public class ItemMagicApple extends ItemFood {
 	public ItemMagicApple(String name) {
 		super(6, 1.4F, false);
 		this.setRegistryName(name);
-		this.setUnlocalizedName(name);
+		this.setTranslationKey(name);
 		this.setCreativeTab(PlanarArtifice.creativetab);
 		this.setAlwaysEdible();
 		

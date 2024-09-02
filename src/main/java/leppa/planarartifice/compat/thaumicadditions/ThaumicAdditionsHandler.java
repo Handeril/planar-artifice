@@ -1,13 +1,12 @@
 package leppa.planarartifice.compat.thaumicadditions;
 
-import org.zeith.thaumicadditions.api.AspectUtil;
-import org.zeith.thaumicadditions.init.ItemsTAR;
-import org.zeith.thaumicadditions.init.KnowledgeTAR;
 import leppa.planarartifice.blocks.BlockAlkimiumSmeltery;
 import leppa.planarartifice.compat.PACompatHandler.ICompatModule;
 import leppa.planarartifice.main.PAConfig;
 import leppa.planarartifice.main.PlanarArtifice;
 import leppa.planarartifice.registry.PABlocks;
+import static leppa.planarartifice.util.AspectUtils.get;
+import static leppa.planarartifice.util.AspectUtils.set;
 import leppa.planarartifice.util.Aspects;
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemStack;
@@ -16,6 +15,9 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
+import org.zeith.thaumicadditions.api.AspectUtil;
+import org.zeith.thaumicadditions.init.ItemsTAR;
+import org.zeith.thaumicadditions.init.KnowledgeTAR;
 import thaumcraft.api.ThaumcraftApi;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.blocks.BlocksTC;
@@ -24,9 +26,6 @@ import thaumcraft.api.crafting.ShapedArcaneRecipe;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
-
-import static leppa.planarartifice.util.AspectUtils.get;
-import static leppa.planarartifice.util.AspectUtils.set;
 
 public class ThaumicAdditionsHandler implements ICompatModule {
 

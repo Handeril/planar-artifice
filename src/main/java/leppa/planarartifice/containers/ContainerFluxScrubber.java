@@ -4,11 +4,9 @@ import leppa.planarartifice.tiles.TileFluxScrubber;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
-import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.items.SlotItemHandler;
-import thaumcraft.common.tiles.essentia.TileSmelter;
 
 public class ContainerFluxScrubber extends Container{
 	
@@ -18,11 +16,11 @@ public class ContainerFluxScrubber extends Container{
 		addSlotToContainer(new SlotItemHandler(tileEntity.inventory, 0, 80, 29));
 		for (int i = 0; i < 3; ++i){
             for (int j = 0; j < 9; ++j){
-                this.addSlotToContainer(new Slot((IInventory)player, j + i * 9 + 9, 8 + j * 18, 84 + i * 18));
+                this.addSlotToContainer(new Slot(player, j + i * 9 + 9, 8 + j * 18, 84 + i * 18));
             }
         }
 		for (int i = 0; i < 9; ++i){
-            this.addSlotToContainer(new Slot((IInventory)player, i, 8 + i * 18, 142));
+            this.addSlotToContainer(new Slot(player, i, 8 + i * 18, 142));
         }
 	}
 	
