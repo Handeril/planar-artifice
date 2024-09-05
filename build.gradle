@@ -45,13 +45,6 @@ repositories {
     }
 }
 
-jar {
-    manifest {
-        attributes 'FMLCorePlugin': 'leppa.planarartifice.core.PlanarArtificeCore',
-                'FMLCorePluginContainsFMLMod': 'true'
-    }
-}
-
 dependencies {
     deobfCompile 'curse.maven:jei-238222:3040523'
     deobfCompile "CraftTweaker2:CraftTweaker2-MC1120-Main:1.12-4.1.8.470"
