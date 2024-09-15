@@ -36,7 +36,8 @@ public class PAItems{
 	
 	public static Item flux_venting_circuit = new ItemPA("flux_venting_circuit");
 	public static Item condensed_crystal_cluster = new ItemPA("condensed_crystal_cluster");
-	public static Item dimensional_singularity = new ItemPA("dimensional_singularity");
+	public static Item dimensional_singularity = new ItemPAContainer("dimensional_singularity");
+
 	public static Item dimensional_curiosity = new ItemCurio("dimensional_curiosity", "PLANARARTIFICE");
 	public static Item fundamental_curiosity = new ItemCurio("fundamental_curiosity", "BASICS");
 
