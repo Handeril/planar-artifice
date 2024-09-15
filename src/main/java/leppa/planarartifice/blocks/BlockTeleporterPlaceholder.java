@@ -96,7 +96,7 @@ public class BlockTeleporterPlaceholder extends BlockPA {
 		return super.setLightLevel(value);
 	}
 
-	public BlockRenderLayer getBlockLayer(){
+	public BlockRenderLayer getRenderLayer(){
 		return BlockRenderLayer.TRANSLUCENT;
 	}
 	

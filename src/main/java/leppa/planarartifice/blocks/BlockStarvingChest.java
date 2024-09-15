@@ -42,37 +42,50 @@ public class BlockStarvingChest extends BlockPA implements ITileEntityProvider {
     public static final int MAX_UPGRADES = 4;
     public static final PropertyDirection FACING;
     public static final PropertyInteger UPGRADES;
+
     public BlockStarvingChest(String name) {
         super(Material.WOOD, name);
         this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH).withProperty(UPGRADES, 1));
-        variantNames = new String[] {"1", "2", "3", "4"};
+        variantNames = new String[]{"1", "2", "3", "4"};
         PABlocks.BLOCKS.remove(this);
         PABlocks.METABLOCKS.add(this);
     }
 
-    public BlockFaceShape getBlockFaceShape(IBlockAccess worldIn, IBlockState state, BlockPos pos, EnumFacing face) { return BlockFaceShape.UNDEFINED; }
+    public BlockFaceShape getBlockFaceShape(IBlockAccess worldIn, IBlockState state, BlockPos pos, EnumFacing face) {
+        return BlockFaceShape.UNDEFINED;
+    }
+
     public boolean canHarvestBlock(IBlockAccess world, BlockPos pos, EntityPlayer player) {
         return true;
     }
+
     public EnumBlockRenderType getRenderType(IBlockState state) {
         return EnumBlockRenderType.INVISIBLE;
     }
+
     public boolean isOpaqueCube(IBlockState state) {
         return false;
     }
+
     public boolean isFullCube(IBlockState state) {
         return false;
     }
-    public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos)
-    { return new AxisAlignedBB(0.0625D, 0.0D, 0.0625D, 0.9375D, 0.875D, 0.9375D); }
-    public AxisAlignedBB getCollisionBoundingBox(IBlockState state, IBlockAccess worldIn, BlockPos pos)
-    { return new AxisAlignedBB(0.0625D, 0.0D, 0.0625D, 0.9375D, 0.875D, 0.9375D); }
+
+    public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
+        return new AxisAlignedBB(0.0625D, 0.0D, 0.0625D, 0.9375D, 0.875D, 0.9375D);
+    }
+
+    public AxisAlignedBB getCollisionBoundingBox(IBlockState state, IBlockAccess worldIn, BlockPos pos) {
+        return new AxisAlignedBB(0.0625D, 0.0D, 0.0625D, 0.9375D, 0.875D, 0.9375D);
+    }
 
     @Override
-    public IBlockState getStateForPlacement(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer)
-    { return this.getStateFromMeta(meta).withProperty(FACING, placer.getHorizontalFacing()); }
+    public IBlockState getStateForPlacement(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer) {
+        return this.getStateFromMeta(meta).withProperty(FACING, placer.getHorizontalFacing());
+    }
+
     public void onBlockPlacedBy(World worldIn, BlockPos pos, IBlockState state, EntityLivingBase placer, ItemStack stack) {
-        EnumFacing enumfacing = EnumFacing.byHorizontalIndex(MathHelper.floor((double)(placer.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3).getOpposite();
+        EnumFacing enumfacing = EnumFacing.byHorizontalIndex(MathHelper.floor((double) (placer.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3).getOpposite();
         state = this.getStateFromMeta(stack.getMetadata()).withProperty(FACING, enumfacing);
         worldIn.setBlockState(pos, state, 3);
     }
@@ -80,7 +93,7 @@ public class BlockStarvingChest extends BlockPA implements ITileEntityProvider {
     public void breakBlock(World worldIn, BlockPos pos, IBlockState state) {
         TileEntity tileentity = worldIn.getTileEntity(pos);
         if (tileentity instanceof IInventory) {
-            InventoryHelper.dropInventoryItems(worldIn, pos, (IInventory)tileentity);
+            InventoryHelper.dropInventoryItems(worldIn, pos, (IInventory) tileentity);
             worldIn.updateComparatorOutputLevel(pos, this);
         }
         super.breakBlock(worldIn, pos, state);
@@ -96,44 +109,59 @@ public class BlockStarvingChest extends BlockPA implements ITileEntityProvider {
         return true;
     }
 
-    public void onEntityCollidedWithBlock(World world, BlockPos pos, IBlockState state, Entity entity) {
+    public void onEntityCollision(World world, BlockPos pos, IBlockState state, Entity entity) {
         Object te = world.getTileEntity(pos);
         if (te != null && !world.isRemote && entity instanceof EntityItem && !entity.isDead) {
-            ItemStack leftovers = ThaumcraftInvHelper.insertStackAt(world, pos, EnumFacing.UP, ((EntityItem)entity).getItem(), false);
-            if (leftovers == null || leftovers.isEmpty() || leftovers.getCount() != ((EntityItem)entity).getItem().getCount()) {
+            ItemStack leftovers = ThaumcraftInvHelper.insertStackAt(world, pos, EnumFacing.UP, ((EntityItem) entity).getItem(), false);
+            if (leftovers == null || leftovers.isEmpty() || leftovers.getCount() != ((EntityItem) entity).getItem().getCount()) {
                 entity.playSound(SoundEvents.ENTITY_GENERIC_EAT, 0.25F, (world.rand.nextFloat() - world.rand.nextFloat()) * 0.2F + 1.0F);
             }
-            if (leftovers != null && !leftovers.isEmpty()) ((EntityItem)entity).setItem(leftovers);
+            if (leftovers != null && !leftovers.isEmpty()) ((EntityItem) entity).setItem(leftovers);
             else entity.setDead();
-            ((TileStarvingChest)te).markDirty();
+            ((TileStarvingChest) te).markDirty();
         }
     }
 
-    public boolean hasComparatorInputOverride(IBlockState state) { return true; }
-    public int getComparatorInputOverride(IBlockState state, World worldIn, BlockPos pos) {
-        Object te = worldIn.getTileEntity(pos);
-        return te instanceof TileStarvingChest ? Container.calcRedstoneFromInventory((IInventory)te) : 0;
+    public boolean hasComparatorInputOverride(IBlockState state) {
+        return true;
     }
 
-    public int damageDropped(IBlockState state) { return state.getValue(UPGRADES); }
-    public void getSubBlocks(CreativeTabs itemIn, NonNullList<ItemStack> items)
-    { for (int i = 0; i < MAX_UPGRADES; ++i) items.add(OreUtils.meta(this, i)); }
+    public int getComparatorInputOverride(IBlockState state, World worldIn, BlockPos pos) {
+        Object te = worldIn.getTileEntity(pos);
+        return te instanceof TileStarvingChest ? Container.calcRedstoneFromInventory((IInventory) te) : 0;
+    }
+
+    public int damageDropped(IBlockState state) {
+        return state.getValue(UPGRADES);
+    }
+
+    public void getSubBlocks(CreativeTabs itemIn, NonNullList<ItemStack> items) {
+        for (int i = 0; i < MAX_UPGRADES; ++i) items.add(OreUtils.meta(this, i));
+    }
+
     public IBlockState getStateFromMeta(int meta) {
         if (meta >= MAX_UPGRADES) meta = MAX_UPGRADES - 1;
         return this.getDefaultState().withProperty(UPGRADES, meta + 1);
     }
-    public int getMetaFromState(IBlockState state) { return state.getValue(UPGRADES) - 1; }
+
+    public int getMetaFromState(IBlockState state) {
+        return state.getValue(UPGRADES) - 1;
+    }
+
     protected BlockStateContainer createBlockState() {
         return new BlockStateContainer(this, FACING, UPGRADES);
     }
-    public ItemStack getPickBlock(@Nonnull IBlockState state, RayTraceResult target, @Nonnull World world, @Nonnull BlockPos pos, EntityPlayer player)
-    { return OreUtils.meta(this, getMetaFromState(state)); }
+
+    public ItemStack getPickBlock(@Nonnull IBlockState state, RayTraceResult target, @Nonnull World world, @Nonnull BlockPos pos, EntityPlayer player) {
+        return OreUtils.meta(this, getMetaFromState(state));
+    }
 
     public boolean hasTileEntity(IBlockState state) {
         return true;
     }
+
     public TileEntity createNewTileEntity(World world, int meta) {
-        return new TileStarvingChest(meta + 1);
+        return new TileStarvingChest();
     }
 
     public IBlockState withRotation(IBlockState state, Rotation rot) {
@@ -144,19 +172,23 @@ public class BlockStarvingChest extends BlockPA implements ITileEntityProvider {
         return state.withRotation(mirrorIn.toRotation(state.getValue(FACING)));
     }
 
-    public void harvestBlock(World worldIn, EntityPlayer player, BlockPos pos, IBlockState state, @Nullable TileEntity te, ItemStack stack)
-    { super.harvestBlock(worldIn, player, pos, state, null, stack); }
-    public boolean eventReceived(IBlockState state, World worldIn, BlockPos pos, int id, int param)
-    {
+    public void harvestBlock(World worldIn, EntityPlayer player, BlockPos pos, IBlockState state, @Nullable TileEntity te, ItemStack stack) {
+        super.harvestBlock(worldIn, player, pos, state, null, stack);
+    }
+
+    public boolean eventReceived(IBlockState state, World worldIn, BlockPos pos, int id, int param) {
         super.eventReceived(state, worldIn, pos, id, param);
         TileEntity tileentity = worldIn.getTileEntity(pos);
         return tileentity != null && tileentity.receiveClientEvent(id, param);
     }
 
-    protected boolean isInvalidNeighbor(World worldIn, BlockPos pos, EnumFacing facing)
-    { return worldIn.getBlockState(pos.offset(facing)).getMaterial() == Material.CACTUS; }
-    protected boolean hasInvalidNeighbor(World worldIn, BlockPos pos)
-    { return this.isInvalidNeighbor(worldIn, pos, EnumFacing.NORTH) || this.isInvalidNeighbor(worldIn, pos, EnumFacing.SOUTH) || this.isInvalidNeighbor(worldIn, pos, EnumFacing.WEST) || this.isInvalidNeighbor(worldIn, pos, EnumFacing.EAST); }
+    protected boolean isInvalidNeighbor(World worldIn, BlockPos pos, EnumFacing facing) {
+        return worldIn.getBlockState(pos.offset(facing)).getMaterial() == Material.CACTUS;
+    }
+
+    protected boolean hasInvalidNeighbor(World worldIn, BlockPos pos) {
+        return this.isInvalidNeighbor(worldIn, pos, EnumFacing.NORTH) || this.isInvalidNeighbor(worldIn, pos, EnumFacing.SOUTH) || this.isInvalidNeighbor(worldIn, pos, EnumFacing.WEST) || this.isInvalidNeighbor(worldIn, pos, EnumFacing.EAST);
+    }
 
     @SideOnly(Side.CLIENT)
     public void registerModels() {

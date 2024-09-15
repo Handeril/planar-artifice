@@ -55,7 +55,7 @@ public class BlockTeleporterMiddle extends BlockPA implements ITileEntityProvide
 	}
 	
 	@Nonnull
-	public BlockRenderLayer getBlockLayer(){
+	public BlockRenderLayer getRenderLayer(){
 		return BlockRenderLayer.TRANSLUCENT;
 	}
 	

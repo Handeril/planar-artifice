@@ -1,30 +1,34 @@
 package leppa.planarartifice.tiles;
 
-import com.google.common.base.Predicate;
 import leppa.planarartifice.blocks.BlockStarvingChest;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.AxisAlignedBB;
 import thaumcraft.api.ThaumcraftInvHelper;
 import thaumcraft.common.tiles.devices.TileHungryChest;
 
 import java.util.List;
+import java.util.function.Predicate;
 
 public class TileStarvingChest extends TileHungryChest {
-    public int upgrades;
-    public TileStarvingChest() { this(1); }
-    public TileStarvingChest(int upgrades) {
-        super();
-        this.upgrades = upgrades;
+    public int upgrades = 0;
+
+    private void setUpgrades() {
+        upgrades = getBlockMetadata() + 1;
     }
 
     // partially stole from openblocks -p
     @Override
     public void update() {
         super.update();
-        List<Entity> entities = world.getEntitiesWithinAABB(Entity.class, new AxisAlignedBB(pos.add(-upgrades, 0, -upgrades), pos.add(1+upgrades, 1+upgrades, 1+upgrades)), filterEntity);
+
+        if (upgrades < 4 && upgrades >= 0)
+            setUpgrades();
+
+        List<Entity> entities = world.getEntitiesWithinAABB(Entity.class, new AxisAlignedBB(pos.add(-upgrades, 0, -upgrades), pos.add(1 + upgrades, 1 + upgrades, 1 + upgrades)), filterEntity::test);
         for (Entity e : entities) {
             double x = (0.5 + pos.getX()) - e.posX;
             double y = (0.5 + pos.getY()) - e.posY;
@@ -40,8 +44,9 @@ public class TileStarvingChest extends TileHungryChest {
     }
 
     private final Predicate<Entity> filterEntity = entity -> {
-      if (!entity.isDead && entity instanceof EntityItem) return ThaumcraftInvHelper.hasRoomForSome(world, pos, EnumFacing.UP, ((EntityItem) entity).getItem());
-      return false;
+        if (!entity.isDead && entity instanceof EntityItem)
+            return ThaumcraftInvHelper.hasRoomForSome(world, pos, EnumFacing.UP, ((EntityItem) entity).getItem());
+        return false;
     };
 
     @Override
@@ -52,5 +57,16 @@ public class TileStarvingChest extends TileHungryChest {
             this.world.notifyNeighborsOfStateChange(this.pos, this.getBlockType(), true);
             this.world.notifyNeighborsOfStateChange(this.pos.down(), this.getBlockType(), true);
         }
+    }
+
+    @Override
+    public void readFromNBT(NBTTagCompound tags) {
+        upgrades = tags.getInteger("upgrades");
+    }
+
+    @Override
+    public NBTTagCompound writeToNBT(NBTTagCompound tags) {
+        tags.setInteger("upgrades", upgrades);
+        return tags;
     }
 }
