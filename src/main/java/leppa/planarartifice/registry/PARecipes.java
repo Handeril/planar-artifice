@@ -122,7 +122,7 @@ public class PARecipes {
         registerInfusionEnchantment("IEProjecting", "PROJECTING", EnumInfusionEnchantmentII.PROJECTING, new Aspects("instrumentum", 15, "aversio", 15, "motus", 15), ingredientNBT(Items.ENCHANTED_BOOK), Items.ENDER_PEARL);
         registerInfusionEnchantment("IECurious", "CURIOUS", EnumInfusionEnchantmentII.CURIOUS, new Aspects("cognitio", 30, "instrumentum", 30), OreUtils.meta(ItemsTC.curio, 1), Items.EXPERIENCE_BOTTLE);
         registerInfusionRecipe("starving_chest_1", "PA_STARVING_CHEST", PABlocks.starving_chest, 3, new Aspects("vinculum", 25, "spatio", 25), BlocksTC.hungryChest, Blocks.HOPPER, ItemsTC.filter, Blocks.HOPPER, ItemsTC.filter);
-        registerInfusionRecipe("starving_chest_2", "PA_STARVING_CHEST", OreUtils.meta(PABlocks.starving_chest, 1), 6, new Aspects("vinculum", 50, "spatio", 50), PABlocks.starving_chest, Blocks.HOPPER, ItemsTC.filter, Blocks.HOPPER, ItemsTC.filter);
+        registerInfusionRecipe("starving_chest_2", "PA_STARVING_CHEST", OreUtils.meta(PABlocks.starving_chest, 1), 6, new Aspects("vinculum", 50, "spatio", 50), OreUtils.meta(PABlocks.starving_chest, 0), Blocks.HOPPER, ItemsTC.filter, Blocks.HOPPER, ItemsTC.filter);
         registerInfusionRecipe("starving_chest_3", "PA_STARVING_CHEST", OreUtils.meta(PABlocks.starving_chest, 2), 9, new Aspects("vinculum", 75, "spatio", 75), OreUtils.meta(PABlocks.starving_chest, 1), Blocks.HOPPER, ItemsTC.filter, Blocks.HOPPER, ItemsTC.filter);
         registerInfusionRecipe("starving_chest_4", "PA_STARVING_CHEST", OreUtils.meta(PABlocks.starving_chest, 3), 12, new Aspects("vinculum", 99, "spatio", 99), OreUtils.meta(PABlocks.starving_chest, 2), Blocks.HOPPER, ItemsTC.filter, Blocks.HOPPER, ItemsTC.filter);
     }
