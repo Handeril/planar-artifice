@@ -90,12 +90,12 @@ public class PARecipes {
         registerCrucibleRecipe("magic_apple", "PA_RARE_ITEMS@4", PAItems.magic_apple, Items.APPLE, new Aspects("praecantatio", 10, "victus", 70, "bestia", 25, "terra", 15));
         registerCrucibleRecipe("alchemical_scribing_tools", "PA_ALCHEMICAL_SCRIBING_TOOLS", PAItems.alchemical_scribing_tools, ItemsTC.scribingTools, new Aspects("auram", 15, "alkimia", 15));
         registerCrucibleRecipe("bismuth", "!Portal", PAItems.bismuth_ingot, OreUtils.meta(ItemsTC.ingots, 0), new Aspects("auram", 20, "potentia", 20));
-        registerCrucibleRecipe("condensed_crystal_cluster1", "", PAItems.condensed_crystal_cluster, ItemsTC.salisMundus, new Aspects("ignis", 50));
-        registerCrucibleRecipe("condensed_crystal_cluster2", "", PAItems.condensed_crystal_cluster, ItemsTC.salisMundus, new Aspects(Aspect.WATER, 50));
-        registerCrucibleRecipe("condensed_crystal_cluster3", "", PAItems.condensed_crystal_cluster, ItemsTC.salisMundus, new Aspects("aer", 50));
-        registerCrucibleRecipe("condensed_crystal_cluster4", "", PAItems.condensed_crystal_cluster, ItemsTC.salisMundus, new Aspects("terra", 50));
-        registerCrucibleRecipe("condensed_crystal_cluster5", "", PAItems.condensed_crystal_cluster, ItemsTC.salisMundus, new Aspects("ordo", 50));
-        registerCrucibleRecipe("condensed_crystal_cluster6", "", PAItems.condensed_crystal_cluster, ItemsTC.salisMundus, new Aspects("perditio", 50));
+        //registerCrucibleRecipe("condensed_crystal_cluster1", "", PAItems.condensed_crystal_cluster, ItemsTC.salisMundus, new Aspects("ignis", 50));
+        //registerCrucibleRecipe("condensed_crystal_cluster2", "", PAItems.condensed_crystal_cluster, ItemsTC.salisMundus, new Aspects(Aspect.WATER, 50));
+        //registerCrucibleRecipe("condensed_crystal_cluster3", "", PAItems.condensed_crystal_cluster, ItemsTC.salisMundus, new Aspects("aer", 50));
+        //registerCrucibleRecipe("condensed_crystal_cluster4", "", PAItems.condensed_crystal_cluster, ItemsTC.salisMundus, new Aspects("terra", 50));
+        //registerCrucibleRecipe("condensed_crystal_cluster5", "", PAItems.condensed_crystal_cluster, ItemsTC.salisMundus, new Aspects("ordo", 50));
+        //registerCrucibleRecipe("condensed_crystal_cluster6", "", PAItems.condensed_crystal_cluster, ItemsTC.salisMundus, new Aspects("perditio", 50));
     }
 
     public static void registerCrucibleRecipe(String resource, String research, Item output, Object catalyst, AspectList tags) {
