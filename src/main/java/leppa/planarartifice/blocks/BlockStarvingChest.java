@@ -26,7 +26,6 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.*;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
@@ -84,12 +83,6 @@ public class BlockStarvingChest extends BlockPA implements ITileEntityProvider {
         return this.getStateFromMeta(meta).withProperty(FACING, placer.getHorizontalFacing());
     }
 
-    public void onBlockPlacedBy(World worldIn, BlockPos pos, IBlockState state, EntityLivingBase placer, ItemStack stack) {
-        EnumFacing enumfacing = EnumFacing.byHorizontalIndex(MathHelper.floor((double) (placer.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3).getOpposite();
-        state = this.getStateFromMeta(stack.getMetadata()).withProperty(FACING, enumfacing);
-        worldIn.setBlockState(pos, state, 3);
-    }
-
     public void breakBlock(World worldIn, BlockPos pos, IBlockState state) {
         TileEntity tileentity = worldIn.getTileEntity(pos);
         if (tileentity instanceof IInventory) {
@@ -132,7 +125,7 @@ public class BlockStarvingChest extends BlockPA implements ITileEntityProvider {
     }
 
     public int damageDropped(IBlockState state) {
-        return state.getValue(UPGRADES);
+        return state.getValue(UPGRADES) - 1;
     }
 
     public void getSubBlocks(CreativeTabs itemIn, NonNullList<ItemStack> items) {

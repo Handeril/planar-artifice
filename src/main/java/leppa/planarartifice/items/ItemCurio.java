@@ -1,6 +1,7 @@
 package leppa.planarartifice.items;
 
 import leppa.planarartifice.main.PlanarArtifice;
+import leppa.planarartifice.registry.PAItems;
 import leppa.planarartifice.util.LocalizationHelper;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
@@ -26,48 +27,51 @@ import java.util.List;
 
 public class ItemCurio extends ItemPA {
 
-	public String category;
-	public String name;
-	public ItemCurio(String name, String category) {
-		super(name);
-		this.name = name;
-		this.category = category;
-	}
+    public String category;
+    public String name;
 
-	@Nonnull
-	public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, @Nonnull EnumHand hand) {
-		world.playSound(null, player.posX, player.posY, player.posZ, SoundsTC.learn, SoundCategory.NEUTRAL, 0.5f,
-				0.4f / (itemRand.nextFloat() * 0.4f + 0.8f));
-		if(!world.isRemote) {
+    public ItemCurio(String name, String category) {
+        super(name);
+        this.name = name;
+        this.category = category;
+    }
 
-			int oProg = IPlayerKnowledge.EnumKnowledgeType.OBSERVATION.getProgression();
-			int tProg = IPlayerKnowledge.EnumKnowledgeType.THEORY.getProgression();
+    @Nonnull
+    public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, @Nonnull EnumHand hand) {
+        world.playSound(null, player.posX, player.posY, player.posZ, SoundsTC.learn, SoundCategory.NEUTRAL, 0.5f, 0.4f / (itemRand.nextFloat() * 0.4f + 0.8f));
+        if (!world.isRemote) {
 
-			ThaumcraftApi.internalMethods.addKnowledge(player, IPlayerKnowledge.EnumKnowledgeType.OBSERVATION,ResearchCategories.getResearchCategory(category),MathHelper.getInt(player.getRNG(), oProg / 2, oProg));
-			ThaumcraftApi.internalMethods.addKnowledge(player, IPlayerKnowledge.EnumKnowledgeType.THEORY,ResearchCategories.getResearchCategory(category),MathHelper.getInt(player.getRNG(), tProg / 3, tProg / 2));
+            ResearchCategory[] rc = (ResearchCategory[]) ResearchCategories.researchCategories.values().toArray((Object[]) new ResearchCategory[0]);
+            int oProg = IPlayerKnowledge.EnumKnowledgeType.OBSERVATION.getProgression();
+            int tProg = IPlayerKnowledge.EnumKnowledgeType.THEORY.getProgression();
 
-			ResearchCategory[] rc = (ResearchCategory[]) ResearchCategories.researchCategories.values().toArray((Object[]) new ResearchCategory[0]);
-			ThaumcraftApi.internalMethods.addKnowledge(player, IPlayerKnowledge.EnumKnowledgeType.OBSERVATION,rc[player.getRNG().nextInt(rc.length)], MathHelper.getInt(player.getRNG(), oProg / 2, oProg));
-			ThaumcraftApi.internalMethods.addKnowledge(player, IPlayerKnowledge.EnumKnowledgeType.THEORY,rc[player.getRNG().nextInt(rc.length)], MathHelper.getInt(player.getRNG(), tProg / 3, tProg / 2));
+            if (this == PAItems.dimensional_curiosity) {
+                ThaumcraftApi.internalMethods.addKnowledge(player, IPlayerKnowledge.EnumKnowledgeType.THEORY, rc[player.getRNG().nextInt(rc.length)], MathHelper.getInt(player.getRNG(), tProg * 2, tProg / 2));
 
-			if(!player.capabilities.isCreativeMode)
-				player.getHeldItem(hand).shrink(1);
+            } else {
+                ThaumcraftApi.internalMethods.addKnowledge(player, IPlayerKnowledge.EnumKnowledgeType.OBSERVATION, ResearchCategories.getResearchCategory(category), MathHelper.getInt(player.getRNG(), oProg / 2, oProg));
+                ThaumcraftApi.internalMethods.addKnowledge(player, IPlayerKnowledge.EnumKnowledgeType.THEORY, ResearchCategories.getResearchCategory(category), MathHelper.getInt(player.getRNG(), tProg / 3, tProg / 2));
+                ThaumcraftApi.internalMethods.addKnowledge(player, IPlayerKnowledge.EnumKnowledgeType.OBSERVATION, rc[player.getRNG().nextInt(rc.length)], MathHelper.getInt(player.getRNG(), oProg / 2, oProg));
+                ThaumcraftApi.internalMethods.addKnowledge(player, IPlayerKnowledge.EnumKnowledgeType.THEORY, rc[player.getRNG().nextInt(rc.length)], MathHelper.getInt(player.getRNG(), tProg / 3, tProg / 2));
+            }
 
-			player.sendMessage(
-					new TextComponentString(TextFormatting.DARK_PURPLE + LocalizationHelper.localize("tc.knowledge.gained")));
-			player.addStat(StatList.getObjectUseStats(this));
+            if (!player.capabilities.isCreativeMode)
+                player.getHeldItem(hand).shrink(1);
 
-		}
+            player.sendMessage(new TextComponentString(TextFormatting.DARK_PURPLE + LocalizationHelper.localize("tc.knowledge.gained")));
+            player.addStat(StatList.getObjectUseStats(this));
 
-		return super.onItemRightClick(world, player, hand);
-	}
+        }
 
-	@SuppressWarnings("deprecation")
-	public EnumRarity getRarity(@Nonnull ItemStack itemstack) {
-		return PlanarArtifice.rarityPA;
-	}
+        return super.onItemRightClick(world, player, hand);
+    }
 
-	public void addInformation(@Nonnull ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
-		tooltip.add(LocalizationHelper.localize("planarartifice." + name));
-	}
+    @SuppressWarnings("deprecation")
+    public EnumRarity getRarity(@Nonnull ItemStack itemstack) {
+        return PlanarArtifice.rarityPA;
+    }
+
+    public void addInformation(@Nonnull ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
+        tooltip.add(LocalizationHelper.localize("planarartifice." + name));
+    }
 }

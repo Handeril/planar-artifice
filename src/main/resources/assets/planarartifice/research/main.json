@@ -9,7 +9,7 @@
         "minecraft:nether_star"
       ],
       "parents": [
-        "FIRSTSTEPS"
+        "~FIRSTSTEPS"
       ],
       "location": [
         -7,
@@ -178,8 +178,7 @@
           ],
           "required_knowledge": [
             "THEORY;ARTIFICE;1",
-            "THEORY;ALCHEMY;1",
-            "THEORY;PLANARARTIFICE;1"
+            "THEORY;ALCHEMY;1"
           ],
           "recipes": [
             "planarartifice:alkimium_smeltery",
@@ -551,7 +550,7 @@
           "text": "planarartifice.research.belt_of_suspension.stage.1.text",
           "required_knowledge": [
             "THEORY;ARTIFICE;1",
-            "THEORY;PLANARARTIFICE;1"
+            "THEORY;INFUSION;1"
           ]
         },
         {
@@ -583,7 +582,7 @@
           "text": "planarartifice.research.mirrored_amulet.stage.1.text",
           "required_knowledge": [
             "THEORY;ARTIFICE;2",
-            "THEORY;PLANARARTIFICE;2",
+            "THEORY;AUROMANCY;2",
             "THEORY;BASICS;3"
           ]
         },
@@ -618,8 +617,7 @@
             "thaumcraft:curio;1;1"
           ],
           "required_knowledge": [
-            "THEORY;PLANARARTIFICE;1",
-            "THEORY;INFUSION;1"
+            "THEORY;INFUSION;2"
           ]
         },
         {

@@ -1,52 +1,103 @@
 item.magic_apple.name=奥法苹果
 item.alkimium_ingot.name=炼化锭
 item.alkimium_plate.name=炼化板
-item.alkimium_goggles.name=揭示之护目镜
+item.alkimium_goggles.name=炼化揭示之护目镜
 item.alkimium_gear.name=炼化齿轮
 item.alkimium_nugget.name=炼化粒
+item.thaumostatic_jet_harness.name=奥术喷气背带
 item.dimensional_curiosity.name=空间珍品
+planarartifice.dimensional_curiosity=它扭曲了周遭的空间
+item.fundamental_curiosity.name=本源珍品
+planarartifice.fundamental_curiosity=回归基础…
 item.dimensional_singularity.name=空间奇点
-item.alchemical_scribing_tools.name=炼金笔与墨
+item.alchemical_scribing_tools.name=炼化笔与墨
 item.bismuth_ingot.name=铋锭
 item.bismuth_nugget.name=铋粒
 item.bismuth_plate.name=铋板
+item.bismuth_claymore.name=铋制双刃剑
 item.aura_meter.name=灵气检测仪
 item.belt_of_suspension.name=悬浮腰带
 item.mirrored_amulet.name=镜像护身符
-item.bismuth_caster.name=铋质法师护手
+item.mirromirous_headband.name=映像发带
+item.bismuth_caster.name=铋制法师护手
 item.flux_venting_circuit.name=咒波发散器
+item.condensed_crystal_cluster.name=浓缩晶簇
+item.alchemical_universe.name=炼金大宇宙
 
 tile.alkimium_block.name=炼化块
 tile.bismuth_block.name=铋块
 tile.alkimium_smeltery.name=炼化源质冶炼厂
-tile.alkimium_smeltery_thaumium.name=炼化神秘冶炼厂
-tile.alkimium_smeltery_void.name=炼化虚空金属冶炼厂
+tile.alkimium_smeltery_thaumium.name=炼化神秘源质冶炼厂
+tile.alkimium_smeltery_void.name=炼化虚空金属源质冶炼厂
 tile.alchemical_alkimium_construct.name=炼化炼金构材
+tile.alkimium_centrifuge.name=炼化源质离心机
 tile.teleporter.name=镜面传送石
 tile.teleporter_matrix.name=镜面矩阵
 tile.potion_mixer.name=药水混合器
 tile.flux_scrubber.name=咒波净化器
+tile.starving_chest.1.name=饥饿箱子I
+tile.starving_chest.2.name=饥饿箱子II
+tile.starving_chest.3.name=饥饿箱子III
+tile.starving_chest.4.name=饥饿箱子IV
 
-planarartifice.PRISMLIGHT.name=虹光
-planarartifice.PRISMLIGHT.text=虹光能够汇聚光束来伤害实体，会对玩家造成失明以及灼烧亡灵生物。
+tile.alkimium_smeltery_mithrillium.name=炼化秘银源质冶炼厂
+tile.alkimium_smeltery_adaminite.name=炼化精金源质冶炼厂
+tile.alkimium_smeltery_mithminite.name=炼化秘金源质冶炼厂
+
+fluid.molten_alkimium=熔融炼化锭
+fluid.molten_bismuth=熔融铋
+material.alkimium.name=炼化
+material.bismuth.name=铋
+modifier.transmutative.name=多变
+modifier.transmutative.desc=如果能够发生转变，掉落物会变成别的东西。
+modifier.aurainfusing.name=灵气灌输
+modifier.aurainfusing.desc=掉落经验的一半转化成Vis
+enchantment.infusion.TRANSMUTATIVE=多变
+enchantment.infusion.AURAINFUSING=灵气灌输
+enchantment.infusion.PROJECTING=投影
+enchantment.infusion.CURIOUS=求知
+golem.material.alkimium=炼化
+golem.material.text.alkimium=这种傀儡是用炼化锭制成的。它轻盈、防火、防爆，比黄铜傀儡具有更强的防御和攻击力，但它用作傀儡材料却使之更脆弱。
+golem.trait.teleporter=传送
+golem.trait.text.teleporter=傀儡能够根据需要远程传送，但会以牺牲一些生命值。
+golem.addon.teleport_pack=传送装置
+golem.addon.text.teleport_pack=允许傀儡在需要长途旅行时进行传送。
+
+planarartifice.PRISMLIGHT.name=棱光
+planarartifice.PRISMLIGHT.text=棱光能够汇聚光束来伤害实体，会对玩家造成失明以及灼烧亡灵生物。
 
 planarartifice.FOCUSCOLOURED.name=核心着色
-planarartifice.FOCUSCOLOURED.text=玩家能够自定义施术核心的颜色，但仅适用于单机。
+planarartifice.FOCUSCOLOURED.text=可以在这个符印中选择不同的核心效果，为他们重置投射物颜色。目标核心效果在右下方选择，而重置的颜色则在正下方调整（仅用于单机）
 
-focus.colourizer.focus=基础核心效果
+focus.colourizer.focus=目标核心效果
 focus.colourizer.invisible=（不适用）
 focus.colourizer.colour=颜色（十六进制，右击输入，完成，或重新输入）
 focus.colourizer.colour.start=-> 键入
 
 itemGroup.planarartifice.tab.name=镜面艺术
+planarartifice.beaconBase=可用作信标基座
+planarartifice.waystone.none=找不到具有此要素的传送石。
+planarartifice.waystone.toomuch=具有此要素的传送石过多。
 
 # ---   ----   --- #
-# --- Research --- #
+# ---   研究   --- #
 # ---   ----   --- #
 tc.research_category.PLANARARTIFICE=镜像学
-# Alkimium Mithrillium Smeltery
-# Alkimium Adaminite Smeltery
-# Alkimium Mithminite Smeltery
+#炼金秘银冶炼厂
+planarartifice.research.alkimium_mithrillium_smeltery.title=秘银冶炼厂升级
+planarartifice.research.alkimium_mithrillium_smeltery.stage.1.text=我也许不知道秘银金属是什么，也不知道它从哪里来，但它似乎比普通的虚空金属更强大，也许这满足了我对完美冶炼厂的设想。
+planarartifice.research.alkimium_mithrillium_smeltery.stage.2.text=我越接近冶炼厂的完成，我就越有信心，但我应该小心对待，我不希望它像我的第一个虚空金属冶炼厂原型那样爆炸。
+planarartifice.research.alkimium_mithrillium_smeltery.complete.text=我花了一些时间才创造出这个杰作，现在我终于可以毫无损失地提炼源质了。虽然有点慢，只有源质冶炼厂的速度。奇怪的是，内部缓存空间似乎增加到原来的三倍，尽管它的体积没有增长，这可能是炼化锭和秘银之间的反应，但仍然有些奇怪。
+#炼金精金冶炼厂
+planarartifice.research.alkimium_adaminite_smeltery.title=精金冶炼厂升级
+planarartifice.research.alkimium_adaminite_smeltery.stage.1.text=我怀疑这项研究是否有意义，我已经能够无损地将道具转化为源质，这些金属能做的就是使这个过程更快一点，但这就是炼化锭的用途，大概吧？
+planarartifice.research.alkimium_adaminite_smeltery.stage.2.text=在我对精金的实验中，我观察到金属和源质之间存在一种有趣的相互作用，不知何故，尽管我只使用了少量精金，但整个咒波黏浆都沸腾了，弄的一团糟，但这种反应会被一些炼化锭增强吗？
+planarartifice.research.alkimium_adaminite_smeltery.complete.text=这个由精金锻造而成的新冶炼厂可能是我设计的最难以解释的设备之一，不仅和普通的神秘冶炼厂一样快，而且似乎凭空增加了25%的源质，我认为如果要解释这种现象，它需要量子神秘学的统一理论（什么鬼啦!），但现在我认为我只是拿来用就好啦。
+#炼金秘金冶炼厂
+planarartifice.research.alkimium_mithminite_smeltery.title=秘金冶炼厂升级
+planarartifice.research.alkimium_mithminite_smeltery.stage.1.text=在我研究了精金这种材料之后，现在是时候看看这种叫做秘金的金属了，但我应该小心处置，因为我不想再因为金属与啥东西接触之后就清理一片未经提炼的咒波黏浆海了。
+planarartifice.research.alkimium_mithminite_smeltery.stage.2.text=在制造冶炼厂时，发生了一些怪事，秘银和炼化锭不知怎么地粘在一起，那以后我就无法将它们分开了，我无法解释为什么，但我怀疑我能否再次改进这个冶炼厂了。
+planarartifice.research.alkimium_mithminite_smeltery.complete.text=正如我所观察到的那样，秘金对源质的提炼的影响甚至比精金更强，增加了50%的源质产量，但是出乎意料的是，这个冶炼厂是迄今为止最快的冶炼厂，这可能是由于其储存的4000个单位咒波黏浆造成的巨大内压造成的。我认为终于到了让这一研究领域谢幕的时候了。
 # 奇珍异宝
 planarartifice.research.rare_items.title=奇珍异宝
 planarartifice.research.rare_items.stage.1.text=世界上分布着许多奇珍异宝，或许我应该先从收集钻石开始。
@@ -64,84 +115,106 @@ planarartifice.research.alkimium.stage.1.text=经过长时间对"炼金学"基�
 planarartifice.research.alkimium.complete.text=我称这种新的金属为——"炼化锭"，它将比黄铜更适合制作炼金制品。
 # 炼金笔与墨
 planarartifice.research.alchemical_scribing_tools.title=炼金笔与墨
-planarartifice.research.alchemical_scribing_tools.complete.text=常规的笔与墨对你来说或许耗尽太快了，而且墨囊的获取也枯燥乏味。因此，你何从不考虑对其进行改良呢？
-planarartifice.research.alchemical_scribing_tools.addendum.1.text=或许，充能基座能解决其对于能量的需求（最多充能至200）。
+planarartifice.research.alchemical_scribing_tools.complete.text=常规的笔与墨对你来说或许耗尽太快了，而且墨囊的获取也枯燥乏味。然而，假如有了这个东西，我可以从灵气场凝聚出墨水，现在唯一的问题是供给足够的vis。
+planarartifice.research.alchemical_scribing_tools.addendum.1.text=或许，充能基座能解决其对于能量的需求（vis最多充能至200）。
 # 炼金应用
 planarartifice.research.alkimium_applications.title=炼金应用
 planarartifice.research.alkimium_applications.stage.1.text=我最初的想法之一就是升级源质冶炼厂，使用炼化锭替代传统的黄铜看看会发生什么样的效果，我应该去试验下。
-planarartifice.research.alkimium_applications.stage.2.text=我在设计时另一个想法就是离心处理，每次离心时复合元素总会被分解为组成其的前置复合元素。This "Advanced" Centrifuge should prove useful when trying to centrifuge aspects down into a specific lower aspect, rather than making it a coin flip.
-planarartifice.research.alkimium_applications.complete.text=成功！正如最初的构想那样，我称之其为"炼化源质冶炼厂"。它具有原本1.5倍的源质容量以及更快的速度。不过值得注意的是，我无法将冶炼厂效率提高到5%以上，这还需要进一步深入研究。
-# 护目镜强化
-planarartifice.research.alkimium_goggles.title=护目镜强化
+planarartifice.research.alkimium_applications.stage.2.text=我在设计冶炼厂时另一个想法是有关源质离心机，每次离心时复合元素总会被分解为组成其的前置复合元素。理论上来说。每次进行源质离心时，都应该产生其组成要素的两种前置要素，当试图拆分复合要素时这种更高级的离心机应该更有价值，而不是让拆分结果变成二选一的抛硬币的过程。不幸的是，生成的两种低级要素都会有概率化为咒波消散。（译者注：分解复合要素变成2份低级的要素，但是大约30%化为咒波消散。）
+planarartifice.research.alkimium_applications.complete.text=成功！正如最初的构想那样，我称之其为"炼化源质冶炼厂"。它具有原本1.5倍的源质容量以及更快的速度。虽然源质在炼化锭制造的机器中更加稳定，但是我无法将冶炼厂效率提高到5%以上，这还需要进一步深入研究。
+# 炼金护目镜
+planarartifice.research.alkimium_goggles.title=炼化护目镜升级
 planarartifice.research.alkimium_goggles.stage.1.text=炼化锭在很多领域都得到了有效的利用，或许是时候使用它来改良护目镜了？
-planarartifice.research.alkimium_goggles.complete.text=通过向揭示之护目镜注入炼化板和一些Alkimia（炼金术，化学）源质以让其兼容炼化锭在最新领域的应用。
+planarartifice.research.alkimium_goggles.complete.text=通过在一副护目镜中注入一些炼化板，附加一点的Alkimia源质，使它们适应了我用炼化锭强化的设备和源质管道的运行速度，并显著提高了它作为盔甲的防御和耐久。在观察炼化锭强化的冶炼厂时，我能看到它还能燃烧多久。当观察管道、罐子或其他类型的源质相关设备时，它会向我揭示该方块目前在观察侧和另一侧的吸力有多大。
 # 改良炼化蒸馏
-planarartifice.research.alkimium_distillation.title=改良炼化蒸馏
-planarartifice.research.alkimium_distillation.stage.1.text=不幸的是，由于我在设计辅助排放口和附属粘浆泵时做了太多假设，它们便无法兼容炼化冶炼厂。为了解决这个问题，我觉得重新起草设计。不过这可能会导致普通黄铜冶炼厂产生兼容问题，但这还是值得一试。
-planarartifice.research.alkimium_distillation.complete.text=正如计划中的那样，我的构想是可行的。不过，果然如预想的那样它们与普通黄铜冶炼厂产生了兼容问题，好在我能将其相互转换。然而，这样做的话会使我损失一个炼化炼金构材，也许...我不应该制造它们？
-# 神秘冶炼厂升级
+planarartifice.research.alkimium_distillation.title=炼化源质蒸馏改良
+planarartifice.research.alkimium_distillation.stage.1.text=不幸的是，由于我在设计辅助排放口和附属粘浆泵时做了太多假设，它们便无法兼容炼化冶炼厂。为了解决这个问题，我重新起草了一份计划，来将其重新用炼化锭调谐。不过这可能会导致普通黄铜冶炼厂产生兼容问题，但这还是值得一试。
+planarartifice.research.alkimium_distillation.complete.text=正如计划中的那样，新的改进蒸馏装置完全兼容了我的炼化冶炼厂。不过，它们反而和普通黄铜冶炼厂产生了兼容问题，好在我能将新装置合成并退化回原来黄铜的版本。然而，这样做的话会使我损失一个炼化炼金构材，也许...我不应该制造它们？
+# 炼化神秘冶炼厂升级
 planarartifice.research.alkimium_thaumium_smeltery.title=神秘冶炼厂升级
 planarartifice.research.alkimium_thaumium_smeltery.stage.1.text=就像当初我使用神秘锭改造源质冶炼厂那样，我应该能够再次使用它来改造我的炼化源质冶炼厂以提升它的效率。但是，将神秘锭和炼化混合将可能发生意想不到的效果。因此，我不得不重新考虑这些问题。
-planarartifice.research.alkimium_thaumium_smeltery.complete.text=完成！它的速度将是源质冶炼厂或者说炼化源质冶炼厂的2.16倍。谢天谢地，这两种金属的混合没有造成任何副作用。<BR>真是越来越有趣了！
-# 虚空冶炼厂升级
+planarartifice.research.alkimium_thaumium_smeltery.complete.text=完成！它的速度将是炼化源质冶炼厂的2.16倍或者说是源质冶炼厂的2.6倍。谢天谢地，这两种金属的混合没有造成任何破坏性的副作用，甚至他们根本没有相互作用。<BR>有趣！
+# 炼化虚空冶炼厂升级
 planarartifice.research.alkimium_void_smeltery.title=虚空冶炼厂升级
-planarartifice.research.alkimium_void_smeltery.stage.1.text=虚空金属与以往我测试过的其他金属不同，我可能需要罗列出所有可能会发生的情况。也许，这就是一个探索的过程！
-planarartifice.research.alkimium_void_smeltery.stage.2.text=不幸的是，它并没有如期像预想的那样工作，而是产生了大爆炸。这种爆炸方式既有趣又不相干，我想我应该能修复它！
-planarartifice.research.alkimium_void_smeltery.complete.text=经过不懈努力，我成功将虚空金属与炼化锭融合，所创造出来的冶炼厂继承了原本炼化神秘冶炼厂的全部优点，其拥有着1.5倍容量。不过，它的效率不尽人意，经过3次测试其的效率依旧保持在原来的95%。因此，为了设计并建造一个堪称完美的冶炼厂，我不得不把目光投向其他材料。
-# 空间撕裂
+planarartifice.research.alkimium_void_smeltery.stage.1.text=虚空金属与以往我测试过的其他金属不同，我*必须*罗列出所有可能会发生的情况。为了追求完美，无咒波污染的冶炼厂这一可能性也需要探索一下。
+planarartifice.research.alkimium_void_smeltery.stage.2.text=不幸的是，在第一次实验中，它并没有如期像预想的那样正常运行，而是产生了相当大的爆炸。这种爆炸方式虽然有趣但是和要素提炼完全无关，我想我应该能修复它！
+planarartifice.research.alkimium_void_smeltery.complete.text=我已经能够创造出一个稳定运行功能齐全的炼化虚空冶炼厂，其速度和黄铜神秘冶炼厂相当，但是容量却是其他炼化冶炼厂的1.5倍。然而，他的蒸馏效率仍然停留在95%，尽管在我的计算中并不是这样（我做了3次检查）。还有别的什么因素阻碍了我创造一个完美的冶炼厂——我将不得寻求其他方法。
+# 传送门
 planarartifice.research.portal.title=空间撕裂
 planarartifice.research.portal.complete.text=这真的是非常，非常奇怪。<BR>在点燃由黑曜石所搭建的多方块结构后，会出现一个跨维度的传送门。没有任何特殊的原因，也许这就是黑曜石的属性之一？再或者火在这个过程中充当着催化剂的作用？无论是哪种猜想，这都值得一查。
 # 空间奇点
 planarartifice.research.dimensional_singularity.title=空间奇点
 planarartifice.research.dimensional_singularity.stage.1.text=对于神秘使而言，再次创造下界传送门或许不是件难事。不过现在，这不仅仅是跨越时间，空间，维度的运输和传送，而是在转向对其深入的操纵，创造，摧毁，压缩这一方向的研究！通俗的说，到了那个时候对于"质量"或许需要重新定义！
-planarartifice.research.dimensional_singularity.complete.text=是的，我做到了！<BR>虽然还不能做到大规模重定义，但在未来的研究中它将起到举足轻重的作用。<BR>通过查阅相关的理论，我总结出可以用空间珍品作为基底，再加上其他介质的调和以创造一个空间奇点。
+planarartifice.research.dimensional_singularity.complete.text=是的，我做到了！<BR>虽然规模不大，也不那么准确，但在未来的研究中它将起到举足轻重的作用。我只需要找到他的用途。<BR>§m用空间奇点合成道具会留下空间珍品§r（译者注：英语原文如此，实际上无论是奥术合成台还是注魔合成，都没这回事。我没辙。）空间珍品可以用于解锁镜面艺术理论，§m抑或是代替空间奇点合成§r（魔导书上没有记载的就不行，别听他扯。）。
 # 镜面传送石
 planarartifice.research.mirror_teleporter.title=镜面传送石
-planarartifice.research.mirror_teleporter.stage.1.text=随着对空间研究的深入，"传送"这词也已平凡在我的脑海中回荡。虽然，目前我只能借助魔镜的力量进行传送。不过，我相信我应该很快就能解决这个问题。等等，我或许可以建造一个传送石，并让其他传送点链接其。<PAGE>也许，这就是一个很好的构想。
-planarartifice.research.mirror_teleporter.stage.2.text=好吧，理论上这应该会起作用的才对，就像符文矩阵那样。这应该算是镜面传送石的核心部位，它将用来控制传送石多方块结构。没有它我真的不知道该如何是好。<BR>我也许会用到空间珍品。
-planarartifice.research.mirror_teleporter.complete.text=完成！<BR>传送石的搭建类似雪傀儡，它需要用到两块奥术石砖和一块镜面矩阵，然后即可用世界盐来激活它。这时你便可以向其放入一块魔力水晶碎片，当你再次右击它时，它便会将你传送到相同魔力水晶碎片的传送石周围。值得注意的是，如果相同元素的魔力水晶碎片大于2（即出现了2个以上的相同元素魔力水晶碎片传送石），则传送将被阻断。
-# 铋元素
+planarartifice.research.mirror_teleporter.stage.1.text=寻找我新研制的维度奇点的应用已经是迫在眉睫。，但是迄今为止，魔镜只能传送我的物品，这使它看上去比较普通。然而，凭借我干涉空间的能力，我也许能够创建一个结构来充当一种锚点，可以透过它传送到其他空间上的锚点。<PAGE>或者至少，这就是我现在的想法。
+planarartifice.research.mirror_teleporter.stage.2.text=好的!理论上来说可行。就像符文矩阵一样，这应该是我的镜面传送石结构的核心。它将用作结构的整体组织和把控。结构的其余部分则作为支撑，以确保不发生不良影响。<BR>§ｍ我也可以用空间珍品来制造这个东西。§ｒ（骗人的。不要信）
+planarartifice.research.mirror_teleporter.complete.text=完成了！ <BR>通过像搭建雪傀儡一样在下方放置两块奥术石砖顶端放置镜面矩阵，然后用世界盐激活它，可以构建一个镜面传送石。然后，我需要给它设定一个“频道”，在多方块结构竖直方向第二格位置，通过手持某一特定要素魔力水晶碎片右击设置一个以该要素为名称的“频道”，使我能够传送到另一个具有相同要素类型频道的镜面传送石周围；应该特别注意，频道只能包含有两个要素类型相同的镜面传送石。只能存在２个要素类型相同的镜面传送石。如果在新的镜面传送石上添加第三个具有相同要素类型的魔力水晶碎片，将会无法用镜面传送石进行传送。
+# 铋
 planarartifice.research.bismuth.title=铋元素
-planarartifice.research.bismuth.stage.1.text=通过观察灵气与传送门之间的相互作用，我可以肯定的说灵气是一种多维能量。也就是说，它们绝大多数不属于这个世界，但似乎有某种东西"吸引"着它们。<BR>我也许能够创造出一种模仿吸引灵气的材料，我称之其为"铋"元素。这将有助于今后的研究。
-planarartifice.research.bismuth.complete.text=铋的发现对于我往后的研究将会起到举足轻重的作用。
+planarartifice.research.bismuth.stage.1.text=通过观察灵气与传送门之间的相互作用，我可以肯定的说灵气是一种高维能量。也就是说，它们绝大多数不属于这个世界，也不存在于我曾抵达过的任何其他世界，相反，他是从看似分布随机的地点慢慢渗入的。我既不知道详情，也不知道为什么。但是我了解到一件事，但似乎有某种东西"吸引"着它们。<BR>我也许能够模仿出一种吸引灵气的材料，我称之其为"铋"元素。这将有助于今后的研究。
+planarartifice.research.bismuth.complete.text=铋是一种比我见过的任何物质都更能适应灵气场的材料，它有很大的潜力。<PAGE>灵气检测仪是一种仪表，它可以在我的背包中的任何地方检查当前灵气场的vis含量，这与魔导透镜不同，我必须手持透镜而且仔细观察。<BR>由铋打造的大剑在灵气场的vis远高于其0的区域造成近乎3倍伤害。（译者注：vis0的时候也能造成3倍伤害，奇怪）<BR>§m当本区块灵气场高于0时，用铋打造的弓可以将普通的箭矢变成充满Vis的魔力箭矢，这种箭的速度更快，伤害更大——只造成轻微的vis损耗。通过无限附魔产生的箭不作数。§r（译者注：现在mod里没这东西！）
 # 咒波净化器
 planarartifice.research.flux_scrubber.title=咒波净化器
 planarartifice.research.flux_scrubber.stage.1.text=咒波溢出或将成为一个棘手的问题，我必须赶在这之前解决它。不过现在，我需要先制定一个有效的解决方案。
-planarartifice.research.flux_scrubber.complete.text=经过一段时间的研究之后，我已经发现了一种消除咒波高效的方法。"咒波净化器"，它以世界盐为燃料运作。在启用时，它会消耗周围的Vis来消除咒波（Vis比：1.5:1，咒波比：1/20秒），如果周围不存在Vis则不起作用。
-# 核心效果：虹光
-planarartifice.research.focus_light.title=核心效果：虹光
-planarartifice.research.focus_light.stage.1.text=到目前为止，我所研究的透镜聚焦效果都非常理想，特别是将它们用做施术核心领域，其汇聚的光束将会对玩家造成失明以及灼烧亡灵生物。
-planarartifice.research.focus_light.complete.text=到目前为止，我所研究的透镜聚焦效果都非常理想，特别是将它们用做施术核心领域，其汇聚的光束将会对玩家造成失明以及灼烧亡灵生物。
+planarartifice.research.flux_scrubber.complete.text=经过一段时间的研究之后，我已经发现了一种消除咒波简洁有效的方法。"咒波净化器"，正如我所设想，它以世界盐为燃料运作。当它启动时，每隔1/20秒，以vis：咒波的比例是1.5：1的比例从灵气场消除咒波。因此用一个世界盐充当燃料往往不够。必须指出，当灵气场没有足够的vis他就不能发挥作用了。
+# 棱镜光-核心
+planarartifice.research.focus_light.title=核心效果:棱光
+planarartifice.research.focus_light.stage.1.text=目前为止我研究过的所有核心效果都非常棒，但灼热的破坏光线这个题材看上去更好;它的耀眼光辉也可以使玩家失明，并以类似于强烈阳光的方式点燃亡灵生物。
+planarartifice.research.focus_light.complete.text=这将是神秘使的又一次成功。这种核心能够汇聚光线形成强大的光束以灼烧敌人，尤其是亡灵生物。
 # 悬浮腰带
 planarartifice.research.belt_of_suspension.title=悬浮腰带
-planarartifice.research.belt_of_suspension.stage.1.text=飞行对于神秘使来说已经算是一个难以置信的能力。虽然我已经能够利用云霄指环来跳跃正常无法触及的高度，但我依旧受到重力的限制。<BR>不过，借助我最新发现的维相关知识，我想我应该能实现无重力悬停。
-planarartifice.research.belt_of_suspension.complete.text=悬浮腰带，顾名思义，当你在跳跃时其会赋予你悬浮效果。在处于悬浮状态时，你仍然可以进行移动，并且你将不会受到任何摔落伤害。
+planarartifice.research.belt_of_suspension.stage.1.text=飞行对于神秘使来说仍然算是一个难以企及的能力。虽然我已经能够利用云霄指环来跳跃正常无法触及的高度，但我依旧受到重力的限制。<BR>不过，借助我最新发现的空间相关知识，我想我应该能增强这种能力，来持续不断的在空中移动，即使我实际上并不使用空间奇点。
+planarartifice.research.belt_of_suspension.complete.text=当装备悬浮腰带时,我将能够通过按住跳跃键不受重力下落而悬停在空中。按住潜行键我可以消除所有竖直方向的速度。通过腰带漂浮的过程中，我仍然可以水平移动。如果我在地面上按住跳跃键，我可以漂浮在地面以上一又四分之一格高度的位置。这个腰带和旅行者靴和云霄指环相兼容。当装备这个腰带时，掉落伤害置零。
 # 核心着色
-planarartifice.research.focus_colour.title=核心着色
-planarartifice.research.focus_colour.stage.1.text=施术核心本身有很高的改良空间，可它们的颜色几乎难以修改。虽然这个问题不大，但如果我能将其改成我喜欢的颜色，那将多么令人愉快。
-planarartifice.research.focus_colour.complete.text=我现在已可修改施术核心的颜色。通过在UI中输入颜色的十六进制代码以改变核心颜色，这并不影响核心的效果（仅适用于单人游戏，且设置无法更改）。
+planarartifice.research.focus_colour.title=核心效果：核心着色
+planarartifice.research.focus_colour.stage.1.text=施术核心本身种类丰富多样，可它们的颜色几乎难以修改。虽然这个问题不大，但如果我能将其改成我喜欢的颜色，那将多么令人愉快。
+planarartifice.research.focus_colour.complete.text=我现在可以通过核心镶饰台选择 核心着色 这个核心效果来修改施术核心的颜色了。我可以只是的修改核心固有的颜色来模仿其他的核心固有的颜色，但是核心的功能和消耗都不变。我可以通过核心镶饰台界面下方的3个RGB滑块来设定颜色。颜色是核心的，不是核心的效果的。（仅限单人模式。设定不能更改，一个接一个的制造2个核心会导致他们的颜色相同。所以做完一个之后等一等）
 # 镜像护身符
 planarartifice.research.mirrored_amulet.title=镜像护身符
-planarartifice.research.mirrored_amulet.stage.1.text=死亡，在这个世界上早已习以为常。随着探险次数的增多，我所发现的"奇珍异宝"也就越多，而死亡也早已变成家产便饭。每个探险家都有一个共同的烦恼，那就是死亡后物品掉落。如果我能解决这个问题，那将有助于今后的探险。
-planarartifice.research.mirrored_amulet.complete.text=镜像护身符如果使用得当，将能有效防止死后物品掉落。重生后，物品栏中的物品不会消失（包括其，盔甲，饰品...）。
+planarartifice.research.mirrored_amulet.stage.1.text=在这个世界上，死亡是一种麻烦。我走得越远，就越有可能寻得罕见的珍宝，也越容易受到死亡的威胁。一旦在远方死亡，我就越难找回我的物品。设计一种在我死后保持所有物品完好无损的方法将非常有用，而且基本上在各种情况下都有价值。
+planarartifice.research.mirrored_amulet.complete.text=装备上镜像护身符时，我死后的所有物品都可以得以存留，在重生后放回我的背包。这些物品不会掉落在地，包含盔甲，背包道具，快捷栏，饰品栏物品。（当然，镜像护身符将因此损毁。）
+# 映像发带
+planarartifice.research.mirromirous_headband.title=映像发带
+planarartifice.research.mirromirous_headband.stage.1.text=T随着我知识的不断增长，对知识的渴望也在增长，最初的求知发带也差不多不够用了，是时候换一个了。
+planarartifice.research.mirromirous_headband.complete.text=通过一些新研制的材料的应用，我设法制造了求知发带的升级版。他需求的经验变成两倍，效率增加了2倍，速度则提高了4倍。
 # 铋质法师护手
 planarartifice.research.bismuth_casters_gauntlet.title=铋质法师护手
-planarartifice.research.bismuth_casters_gauntlet.stage.1.text=铋有着吸引灵气的能力，这使其能够很好的进行利用。法师护手就是一个不错的选择，它能很好的运用核心效果与魔力亲和。
-planarartifice.research.bismuth_casters_gauntlet.stage.2.text=不幸的是，铋不像看上去的那样稳定，在使用时会产生少量的咒波来"吸引"灵气。我原先的设计有着诸多不稳定因素，这迫使我需要探求一种新的方法来解决这个问题。
-planarartifice.research.bismuth_casters_gauntlet.complete.text=我成功的利用了铋不稳定的特性来提升核心的能力，不过随之而来的是更高的魔力消耗。
-# Bush Alchemy
-# Infusion Enchantment 2
+planarartifice.research.bismuth_casters_gauntlet.stage.1.text=铋有着无条件吸引灵气的能力，这使他在很多方面都非常有用。法师护手就是一个不错的应用方向，对灵气场的亲和力越高，就意味着施法的效果越好。
+planarartifice.research.bismuth_casters_gauntlet.stage.2.text=不幸的是，铋元素在实际牵引灵气场时看似产生了少量的不稳定。使我的设计原型产生了过多的不稳定性，它整个碎裂了。考虑到影响因素可能还有核心施放的效果本身，我得想办法消除这种不稳定性。
+planarartifice.research.bismuth_casters_gauntlet.complete.text=通过施法效应耗散这种不稳定性，我可以利用它来提高施法效果的强度。铋的牵引灵气场的效应会导致消耗的vis比所需的更多，从而增加了魔力消耗。
+# 注魔法附魔 2
+planarartifice.research.infusion_enchantment_2.title=注魔法附魔 II
+planarartifice.research.infusion_enchantment_2.stage.1.text=自从我最初发明注魔法附魔以来，我的神秘学已经取得很多成果了，现在我可以接触到更广泛的材料和更深入的知识。我想到了许多有趣的想法和概念，希望对我有所启迪。
+planarartifice.research.infusion_enchantment_2.complete.text=我创造了一些新的注魔法附魔。和最初的那些一样，某些附魔特性可以叠加，但每级附魔都会增加源质消耗。<BR>每新增一项附魔同样会增加33%的注魔源质消耗，同时这也会增加该工具扭曲的概率。其完全独立于原来的注魔法附魔合成。<BR>某些注魔法附魔只能用于特定的工具或武器，详细内容见下文。<BR>经过注魔法附魔的工具仍然能施加一般附魔，反之亦然。<BR>和原先不同的是，在潜行时使用带注魔法附魔的工具将§o不§r禁用他的功能。<PAGE>§o多变§r<DIV>用多变附魔的武器杀死的怪物掉落的任何物品都会被变成更稀有或更有用的物品。<DIV>§o附魔等级§r: 无<BR>§o附魔目标§r: 斧，镐，铲，武器<PAGE>§o灵气灌输§r<DIV>被灵气灌输附魔武器杀死的怪物的经验值将按2:1的比例转换为灵气场的vis值。<DIV>§o附魔等级§r: 无<BR>§o附魔目标§r:武器 <PAGE>§o投影§r<DIV>为武器附魔投影将赋予其额外作用范围，使其在寻常工作范围外挖掘方块，每个附魔等级增加两个方块远。但是，怪物无法从远处伤害到。<DIV>§o附魔等级§r: 1-5<BR>§o附魔目标§r: 斧，镐，铲，武器<PAGE>§o求知§r<DIV>带有此附魔的物品破坏的方块或杀死怪物都有很小的机会掉落随机珍品。<DIV>§o附魔等级§r:1-5<BR>§o附魔目标§r: 斧，镐，铲，武器
 # 材料研究：炼化锭
-planarartifice.research.matstudy_alkimium.title=材料研究：炼化锭
-planarartifice.research.matstudy_alkimium.stage.1.text=或许炼化锭也能作为傀儡的材料。将质地柔软轻盈的黄铜用在傀儡上，其中的好处也都彰显了出来，但炼化锭又会带来怎样的体验呢？
-planarartifice.research.matstudy_alkimium.complete.text=经过进一步研究，似乎使用炼化锭制作出的傀儡移动时会更加轻盈迅速...但它们的动作好像有些奇怪。
-#planarartifice.research.MATSTUDYALKIMIUM.title=Material Studies: Alkimium
-#planarartifice.research.MATSTUDYALKIMIUM.stage.1.text=While alkimium is more brittle than brass, it is much more resistant to heat and explosions.<BR>Its color stands out against most backgrounds, and retains brass' lightness. It should be an improvement over plain brass, so long as it isn't being hit.
-# --- End of Research --- #
+planarartifice.research.matstudy_alkimium.title=材料研究:炼化
+planarartifice.research.matstudy_alkimium.stage.1.text=也许炼化锭可以用作傀儡材料。黄铜显然似乎是一种轻盈优质的材料，但假如替换成炼化锭给这些小家伙带来什么好处呢？
+planarartifice.research.matstudy_alkimium.complete.text=经过进一步研究，似乎使用炼化锭制作出的傀儡移动时会更加轻盈迅速...但它们的行动好像有些奇怪。
+# 饥饿箱子
+planarartifice.research.starving_chest.title=饥饿箱子
+planarartifice.research.starving_chest.stage.1.text=饕餮箱子在收集资源所需的各种自动化方面做得很好。然而，造成损失的原因仅仅是缺少这一些道具……也许研究这些元素可以帮助我改善这个难题……
+planarartifice.research.starving_chest.complete.text=饥饿可以吞噬一切。我用最近发现的能够扭曲空间的要素源质创造了一个更强大的饕餮箱子，它能够在箱子周围形成漩涡放大其吸力，把附加的东西拖曳过来……随着我重复不断的注魔，它的引力半径似乎就越大。然而，在饥饿箱子变得过于不稳定并引爆自身之前，它只能总共被注魔4次。也许我将来能找到更好的选择……
+# --- 研究终了！ --- #
+planarartifice.alkimium=炼化改良兼容
 
-tooltip.usablevis=目前可用魔力： 
+# 配置
+planarartifice.config.compat.tacompat=将该值设置为true以禁用与神秘领域（Thaumic Additions）的兼容性。
+planarartifice.config.compat.taextracompat=将该值设置为true以禁用与与神秘领域（Thaumic Additions）的额外兼容性(更改配方)。
+planarartifice.config.compat.tinkerscompat=将该值设置为true以禁用与匠魂（Tinkers' Construct）的兼容性。
+planarartifice.config.compat.xercapaintcompat=将该值设置为true以禁用与Joy of Painting的兼容性。
+planarartifice.config.compat.aspectcompat=将该值设置为true，仅从随机水晶炼金术（Random Crystal Alchemy）中获取神秘时代源质（Thaumcraft essentia）。
+planarartifice.config.overhaul.ingot_re_aspect=将该值设置为true，以阻止镜面艺术（Planar Artifice）对锭种类元素的检修（overhauling aspects for ingot types.）。
+planarartifice.config.overhaul.alloy_re_aspect=将该值设置为true可阻止镜面艺术（Planar Artifice）对合金种类的元素的检修。（overhauling aspects for alloy types.）
+planarartifice.config.balance.bismuth_crash_cost=实用炼金术：铋之转化术（Bush Alchemy: Bismuth Projection）所需的源质数量
+planarartifice.config.balance.duplication_cost=实用炼金术：嬗变术（Bush Alchemy: Conjuring）所需的源质数量
+planarartifice.config.balance.taint_feature_gen=从腐化原木中生长出腐化肿泡的百分比,设置0就能禁用。
+
+tooltip.usablevis=目前可用魔力：
+tooltip.basevis=目前基本魔力：
 tooltip.castercost= 魔力消耗
-tooltip.casterpower= 魔力
+tooltip.casterpower=效能
 tooltip.willlastforseconds=将燃烧 %s 秒。
 tooltip.willlastforminutes=将燃烧 %s 分 %s 秒。
 
