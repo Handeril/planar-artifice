@@ -6,7 +6,7 @@
   "mcversion": "${mcversion}",
   "url": "",
   "updateUrl": "",
-  "authorList": ["§2pr§aod§bzp§9od§8", "§bZoko§fnius§8", "§fLu§dna§r"],
+  "authorList": ["§2pr§aod§bzp§9od§8", "§bZoko§fnius§8", "§fLu§dna§r", "keletu", "fakeginkgo"],
   "credits": "\n  §dAzanor§8 for§7 making TC6\n  §eMinerGuyLex§8 for§7 lots of textures\n  §cdycoldwind§8 for§7 Chinese Translations\n  §5TheCodex6824§8 for§7 gradle stuff\n  §6Turkey9002§8 for§7 aspect/foci icon texture§r",
   "logoFile": "assets/planarartifice/textures/meta/logo_long.png",
   "screenshots": [],
