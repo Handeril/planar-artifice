@@ -4,3 +4,5 @@ Hoping that this project finally sees some updates/activity, also hoping that th
 
 If people have updates/fixes to this project, feel free to make a PR to this project and please let me know if you'd like to have a credit added to the project for you.
 If you'd like to fork this project instead, to do your own continuation, be my guest.
+
+This fork was posted with permission.
